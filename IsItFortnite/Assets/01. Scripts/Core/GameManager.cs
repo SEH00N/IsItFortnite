@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
         if(PlayerState.Instance == null)
             PlayerState.Instance = new PlayerState();
 
+        if(EnemyState.Instance == null)
+            EnemyState.Instance = new EnemyState();
+
         //풀러 생성
         foreach (PoolableMono temp in poolList)
             PoolManager.Instance.CreatePool(temp, 5);

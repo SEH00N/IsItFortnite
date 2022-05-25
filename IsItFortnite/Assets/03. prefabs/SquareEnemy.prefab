@@ -95,13 +95,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0b9fd2c0ab8394fb0194d05251f8b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  lookAt: {fileID: 7496780192686124210}
   speed: 3
   maxHP: 5
   patrolDelay: 2
   patrolDistance: 5
   currentHP: 0
-  firePos: {fileID: 7496780192686124210}
+  knockBackDuration: 0.1
+  knockBackPwr: 3
   fireDelay: 1
 --- !u!1 &7496780192686124213
 GameObject:

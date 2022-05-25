@@ -43,7 +43,6 @@ public class PlayerControl : Character
             if (hit) PlayerFire(); //적을 감지하면 발사
             else PlayerMovement(mousePos); //적이 아닌 것을 감지하면 움직임
         }
-
     }
 
     /// <summary>
