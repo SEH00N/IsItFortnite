@@ -7,23 +7,21 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Transform pooler;
     [SerializeField] List<PoolableMono> poolList;
-    public Transform maxPos;
     public Transform minPos;
+    public Transform maxPos;
+    public Transform player;
 
     private void Awake()
     {
         //Instance 할당
-        if(GameManager.Instance == null)
+        if (GameManager.Instance == null)
             Instance = this;
 
-        if(PoolManager.Instance == null)
+        if (PoolManager.Instance == null)
             PoolManager.Instance = new PoolManager(pooler);
 
-        if(PlayerState.Instance == null)
+        if (PlayerState.Instance == null)
             PlayerState.Instance = new PlayerState();
-
-        if(EnemyState.Instance == null)
-            EnemyState.Instance = new EnemyState();
 
         //풀러 생성
         foreach (PoolableMono temp in poolList)

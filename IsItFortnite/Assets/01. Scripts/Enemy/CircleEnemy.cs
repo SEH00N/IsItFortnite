@@ -1,7 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SquareEnemy : Enemy, IDamageable
+public class CircleEnemy : Enemy, IDamageable
 {
     [SerializeField] float fireDelay = 1f;
 
@@ -21,22 +22,6 @@ public class SquareEnemy : Enemy, IDamageable
             PoolManager.Instance.Enqueue(this);
     }
 
-    protected override void Start()
-    {
-        base.Start();
-        Reset();
-    }
-
-    public override void Reset()
-    {
-        base.Reset();
-        StartCoroutine(Patrol());
-        StartCoroutine(Fire());
-    }
-
-    /// <summary>
-    /// 플레이어를 향해 총알 발사
-    /// </summary>
     private IEnumerator Fire()
     {
         while (true)

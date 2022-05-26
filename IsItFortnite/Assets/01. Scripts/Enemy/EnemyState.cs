@@ -1,9 +1,8 @@
 using System;
+using UnityEngine;
 
-public class EnemyState
+public class EnemyState : MonoBehaviour
 {
-    public static EnemyState Instance = null;
-
     [Flags]
     public enum State
     {

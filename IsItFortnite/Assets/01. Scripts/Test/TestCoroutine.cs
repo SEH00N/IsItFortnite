@@ -13,6 +13,7 @@ public class TestCoroutine : MonoBehaviour
         while(true)
         {
             Debug.Log("Is Coroutine");
+            if(Input.GetKeyDown(KeyCode.E)) break;
             yield return new WaitForSeconds(1f);
         }
     }
