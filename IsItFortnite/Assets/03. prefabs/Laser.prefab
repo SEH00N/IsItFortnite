@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6963138477881627178}
   - component: {fileID: 5257254734879629443}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Parametric Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,9 +83,9 @@ GameObject:
   - component: {fileID: 8730861315387101730}
   - component: {fileID: 8730861315387101728}
   - component: {fileID: 3527776750942691674}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Laser
-  m_TagString: Bullet
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,9 +121,6 @@ MonoBehaviour:
   damage: 1
   lifeTime: 1
   tagName: Enemy
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!61 &3527776750942691674
 BoxCollider2D:
   m_ObjectHideFlags: 0

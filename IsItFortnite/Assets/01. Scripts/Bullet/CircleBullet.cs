@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Laser : Bullet
+public class CircleBullet : Bullet
 {
     public override void Reset()
     {
@@ -9,7 +9,7 @@ public class Laser : Bullet
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //Enemy태그에 닿으면 Enqueue, OnDamage
+        //Player태그에 닿으면 Dequeue, OnDamage
         IsNear(other);
     }
 }

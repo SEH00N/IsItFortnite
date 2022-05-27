@@ -42,15 +42,20 @@ public class SquareEnemy : Enemy, IDamageable
         while (true)
         {
             //State가 Damaged면 break
-            if(state.HasFlag(EnemyState.State.Damaged)) break;
-
-            //enum(State) 업데이트
-            state |= EnemyState.State.Fire;
+            if (state.HasFlag(EnemyState.State.Damaged)) break;
 
             yield return new WaitForSeconds(fireDelay);
-            SquareBullet temp =  PoolManager.Instance.Dequeue("SquareBullet") as SquareBullet;
-            temp.transform.position = lookAt.position;
-            temp.transform.rotation = transform.rotation;
+
+            //순찰 범위 안에 플레이어가 있으면 발사
+            if(IsNear())
+            {
+                //enum(State) 업데이트
+                state |= EnemyState.State.Fire;
+
+                SquareBullet temp =  PoolManager.Instance.Dequeue("SquareBullet") as SquareBullet;
+                temp.transform.position = lookAt.position;
+                temp.transform.rotation = transform.rotation;
+            }
         }
     }
 }

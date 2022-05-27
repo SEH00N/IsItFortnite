@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : PoolableMono
 {
+    [SerializeField] protected LayerMask playerLayer;
     [SerializeField] protected Transform lookAt;
     [SerializeField] protected float speed = 5f;
     [SerializeField] protected float maxHP = 5f;
@@ -78,7 +79,6 @@ public class Enemy : PoolableMono
         transform.rotation = Quaternion.Euler(rotate);
     }
 
-
     /// <summary>
     /// 에너미 넉백
     /// </summary>
@@ -94,5 +94,13 @@ public class Enemy : PoolableMono
 
         //State Flag에서 Damaged 제거
         state &= ~EnemyState.State.Damaged;
+    }
+
+    /// <summary>
+    /// 순찰 범위 내 플레이어 감지
+    /// </summary>
+    protected bool IsNear()
+    {
+        return Physics2D.OverlapCircle(col2d.bounds.center, patrolDistance * 2, playerLayer);
     }
 }
