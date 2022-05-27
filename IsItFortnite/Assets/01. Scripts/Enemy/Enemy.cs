@@ -12,8 +12,7 @@ public class Enemy : PoolableMono
     [SerializeField] protected float currentHP = 0;
     [SerializeField] protected float knockBackDuration = 0.5f;
     [SerializeField] protected float knockBackPwr = 5f;
-    protected EnemyState.State state = EnemyState.State.Idle;
-    protected EnemyState enemyState = null;
+    [SerializeField] protected EnemyState.State state = EnemyState.State.Idle;
     protected Rigidbody2D rb2d = null;
     protected Collider2D col2d = null;
     protected Transform player;
@@ -22,7 +21,6 @@ public class Enemy : PoolableMono
     {
         rb2d = GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
-        enemyState = GetComponent<EnemyState>();
     }
 
     protected virtual void Start()
@@ -49,20 +47,22 @@ public class Enemy : PoolableMono
         while (true)
         {
             //State가 Damaged면 break
-            if(state.HasFlag(EnemyState.State.Damaged)) break;
+            if(!state.HasFlag(EnemyState.State.Damaged))
+            {
+                //enum(State) 업데이트
+                state |= EnemyState.State.Move;
 
-            //enum(State) 업데이트
-            state |= EnemyState.State.Move;
+                float angle = Random.Range(0, 360f) * Mathf.Rad2Deg;
+                //반지름이 patrolDistance인 원주의 임의의 점을 구함
+                Vector3 randPos = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * patrolDistance;
+                //임의의 점을 기준으로 방향 설정
+                Vector3 dir = (player.position + randPos - transform.position).normalized;
 
-            float angle = Random.Range(0, 360f) * Mathf.Rad2Deg;
-            //반지름이 patrolDistance인 원주의 임의의 점을 구함
-            Vector3 randPos = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * patrolDistance;
-            //임의의 점을 기준으로 방향 설정
-            Vector3 dir = (player.position + randPos - transform.position).normalized;
+                rb2d.velocity = dir * speed;
 
-            rb2d.velocity = dir * speed;
-
-            yield return new WaitForSeconds(patrolDelay);
+                yield return new WaitForSeconds(patrolDelay);
+            }
+            yield return null;
         }
     }
 

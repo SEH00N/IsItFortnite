@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7496780192656971324}
   - component: {fileID: 7496780192656971322}
   - component: {fileID: 7496780192656971325}
-  - component: {fileID: 1115615946563872238}
   m_Layer: 7
   m_Name: SquareEnemy
   m_TagString: Enemy
@@ -106,21 +105,9 @@ MonoBehaviour:
   patrolDistance: 5
   currentHP: 0
   knockBackDuration: 0.1
-  knockBackPwr: 3
-  fireDelay: 1
---- !u!114 &1115615946563872238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7496780192656971313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c095a0ca7172e4c91781d04a61f911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  knockBackPwr: 2
   state: 0
+  fireDelay: 5
 --- !u!1 &7496780192686124213
 GameObject:
   m_ObjectHideFlags: 0
