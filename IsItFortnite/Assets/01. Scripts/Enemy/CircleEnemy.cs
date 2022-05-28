@@ -19,6 +19,9 @@ public class CircleEnemy : Enemy, IDamageable
 
         currentHP -= dmg;
 
+        //스코어 증가
+        GameManager.Instance.SetScore((maxHP - currentHP));
+
         StartCoroutine(KnockBack());
     }
 
@@ -44,7 +47,7 @@ public class CircleEnemy : Enemy, IDamageable
                 state |= EnemyState.State.Fire;
 
                 //8방향으로 방사형 발사
-                for(int i = 0; i < fireCount; i++)
+                for (int i = 0; i < fireCount; i++)
                 {
                     CircleBullet temp = PoolManager.Instance.Dequeue("CircleBullet") as CircleBullet;
                     temp.transform.position = firePos.position;

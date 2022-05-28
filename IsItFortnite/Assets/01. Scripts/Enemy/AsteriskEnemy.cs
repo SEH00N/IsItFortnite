@@ -11,6 +11,11 @@ public class AsteriskEnemy : Enemy, IDamageable
         //State가 Damaged면 return
         if (state.HasFlag(EnemyState.State.Damaged)) return;
 
+        currentHP -= dmg;
+
+        //스코어 증가
+        GameManager.Instance.SetScore((maxHP - currentHP));
+
         StartCoroutine(Bomb());
     }
 

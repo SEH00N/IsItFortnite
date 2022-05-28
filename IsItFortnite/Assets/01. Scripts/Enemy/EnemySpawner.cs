@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] List<PoolableMono> enemyList;
     [SerializeField] float distance = 10f;
+    [SerializeField] float spawnDelay = 10f;
     private int randVal = 0;
     public Vector3 randPos;
 
@@ -18,22 +20,33 @@ public class EnemySpawner : MonoBehaviour
             Instance = this;
     }
 
-    private void Update()
+    private void Start()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
-            SpawnEnemy();
+        StartCoroutine(SpawnEnemy());
     }
 
-    private void SpawnEnemy()
+    private void Update()
     {
-        //랜덤 에너미 설정
-        int randVal = Random.Range(0, enemyList.Count);
+        float balancing = GameManager.Instance.balancing;
+        if(spawnDelay >= 3)
+            spawnDelay -= (GameManager.Instance.currentTime / (balancing * balancing * balancing));
+    }
 
-        //랜덤 위치 설정
-        float angle = Random.Range(0, 360f) * Mathf.Rad2Deg;
-        randPos = transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
+    private IEnumerator SpawnEnemy()
+    {
+        while(true)
+        {
+            //랜덤 에너미 설정
+            int randVal = Random.Range(0, enemyList.Count);
 
-        //에너미 생성
-        PoolableMono temp = PoolManager.Instance.Dequeue(enemyList[randVal].name);
+            //랜덤 위치 설정
+            float angle = Random.Range(0, 360f) * Mathf.Rad2Deg;
+            randPos = transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
+
+            //에너미 생성
+            PoolableMono temp = PoolManager.Instance.Dequeue(enemyList[randVal].name);
+
+            yield return new WaitForSeconds(spawnDelay);
+        }
     }
 }

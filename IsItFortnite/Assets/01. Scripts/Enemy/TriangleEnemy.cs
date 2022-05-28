@@ -17,6 +17,9 @@ public class TriangleEnemy : Enemy, IDamageable
 
         currentHP -= dmg;
 
+        //스코어 증가
+        GameManager.Instance.SetScore((maxHP - currentHP));
+
         StartCoroutine(KnockBack());
     }
 

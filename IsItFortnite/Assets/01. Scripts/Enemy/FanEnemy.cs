@@ -6,6 +6,11 @@ public class FanEnemy : Enemy, IDamageable
 
     public void OnDamage(float dmg)
     {
+        currentHP -= dmg;
+
+        //스코어 증가
+        GameManager.Instance.SetScore((maxHP - currentHP));
+
         //한 대 맞으면 사망
         PoolManager.Instance.Enqueue(this);
     }
