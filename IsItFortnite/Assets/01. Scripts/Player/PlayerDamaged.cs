@@ -99,6 +99,8 @@ public class PlayerDamaged : MonoBehaviour, IDamageable
     /// </summary>
     private void GameOver()
     {
+        GameManager.Instance.SaveScore();
+
         fadeCavas.SetActive(true);
         fadeImage.DOFade(1, 3f).OnComplete(() => {
             gameObject.SetActive(false);

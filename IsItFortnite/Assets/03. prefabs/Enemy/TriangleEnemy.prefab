@@ -110,7 +110,7 @@ MonoBehaviour:
   knockBackDuration: 0.1
   knockBackPwr: 2
   state: 0
-  fireDelay: 5
+  fireDelay: 4
 --- !u!1 &1433401757431076565
 GameObject:
   m_ObjectHideFlags: 0

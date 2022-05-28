@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] List<PoolableMono> enemyList;
     [SerializeField] float distance = 10f;
     [SerializeField] float spawnDelay = 10f;
+    [SerializeField] float limitSpawnDealay = 3f;
     private int randVal = 0;
     public Vector3 randPos;
 
@@ -27,13 +28,21 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        //balancing 캐싱
         float balancing = GameManager.Instance.balancing;
-        if(spawnDelay >= 3)
+
+        //spawnDelay 시간 비례 감소
+        if(spawnDelay >= limitSpawnDealay)
             spawnDelay -= (GameManager.Instance.currentTime / (balancing * balancing * balancing));
     }
 
+    /// <summary>
+    /// 랜덤 적 소환
+    /// </summary>
     private IEnumerator SpawnEnemy()
     {
+        yield return new WaitForSeconds(limitSpawnDealay);
+
         while(true)
         {
             //랜덤 에너미 설정

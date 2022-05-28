@@ -37,6 +37,9 @@ public class Enemy : PoolableMono
         //위치 초기화
         transform.position = EnemySpawner.Instance.randPos;
 
+        //enum(State) 초기화
+        state = EnemyState.State.Idle;
+
         //체력 초기화
         currentHP = maxHP;
     }

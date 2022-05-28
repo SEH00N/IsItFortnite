@@ -100,7 +100,7 @@ MonoBehaviour:
   knockBackPwr: 2
   state: 0
   firePos: {fileID: 8225493516151977686}
-  fireDelay: 7
+  fireDelay: 5
   fireCount: 8
 --- !u!1 &8225493515815574448
 GameObject:

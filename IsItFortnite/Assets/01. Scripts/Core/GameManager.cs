@@ -50,12 +50,30 @@ public class GameManager : MonoBehaviour
         scoreTxt.text = $"{Mathf.FloorToInt(score)}";
     }
 
-    //스코어 증가
+    /// <summary>
+    /// 적 피격시 스코어 증가
+    /// </summary>
     public void SetScore(float scr)
     {
         score += scr * (currentTime / balancing);
     }
 
+    /// <summary>
+    /// 점수 저장
+    /// </summary>
+    public void SaveScore()
+    {
+        PlayerPrefs.SetInt("CurrentTime", Mathf.FloorToInt(currentTime));
+        PlayerPrefs.SetInt("CurrentScore", Mathf.FloorToInt(score));
+        if(score > PlayerPrefs.GetInt("BestScore", 0))
+            PlayerPrefs.SetInt("BestScore", Mathf.FloorToInt(score));
+        if(currentTime > PlayerPrefs.GetInt("BestTime", 0))
+            PlayerPrefs.SetInt("CurrentTime", Mathf.FloorToInt(currentTime));
+    }
+
+    /// <summary>
+    /// 시간 비례 스코어 증가
+    /// </summary>
     private IEnumerator IncreaseScore()
     {
         while(true)
