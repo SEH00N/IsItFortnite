@@ -1,11 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : PoolableMono
 {
+    [SerializeField] protected List<string> tagName = new List<string>();
     [SerializeField] protected float speed = 5f;
     [SerializeField] protected float damage = 5f;
     [SerializeField] protected float lifeTime = 1f;
-    [SerializeField] protected string tagName;
     protected float currentTime = 0;
 
     public override void Reset()
@@ -42,7 +43,7 @@ public class Bullet : PoolableMono
     /// </summary>
     protected void IsNear(Collision2D other)
     {
-        if(other.gameObject.CompareTag(tagName))
+        if(other.gameObject.CompareTag(tagName[0]) || other.gameObject.CompareTag(tagName[1]))
         {
             PoolManager.Instance.Enqueue(this);
             IDamageable id = other.gameObject.GetComponent<IDamageable>();

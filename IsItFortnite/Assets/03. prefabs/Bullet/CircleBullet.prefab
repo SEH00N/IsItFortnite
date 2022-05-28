@@ -46,10 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eddfdb4cf61074478f082d6102bca84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagName:
+  - Player
   speed: 8
   damage: 3
   lifeTime: 3
-  tagName: Player
 --- !u!70 &8357032477393237650
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

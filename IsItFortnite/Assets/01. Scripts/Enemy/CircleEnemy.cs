@@ -43,7 +43,6 @@ public class CircleEnemy : Enemy, IDamageable
             //State가 Damaged면 break
             if (state.HasFlag(EnemyState.State.Damaged)) break;
 
-            yield return new WaitForSeconds(fireDelay);
 
             //순찰 범위 안에 플레이어가 있으면 발사
             if (IsNear())
@@ -59,6 +58,11 @@ public class CircleEnemy : Enemy, IDamageable
                     temp.transform.rotation = Quaternion.Euler(0, 0, i * 360 / fireCount);
                 }
             }
+            
+            yield return new WaitForSeconds(fireDelay);
+
+            //enum(State) 업데이트
+            state &= ~EnemyState.State.Fire;
         }
     }
 }

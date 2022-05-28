@@ -146,12 +146,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474a053bc3a78a242ba0d0f6d28d9972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagName:
+  - Player
   speed: 5
   damage: 2
   lifeTime: 6
-  tagName: Player
   state: 0
-  followingDuration: 3
+  followingDuration: 2
 --- !u!1 &8195587210659894626
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,8 +44,6 @@ public class TriangleEnemy : Enemy, IDamageable
             //State가 Damaged면 break
             if (state.HasFlag(EnemyState.State.Damaged)) break;
 
-            yield return new WaitForSeconds(fireDelay);
-
             //순찰 범위 안에 플레이어가 있으면 발사
             if(IsNear())
             {
@@ -56,6 +54,11 @@ public class TriangleEnemy : Enemy, IDamageable
                 temp.transform.position = lookAt.position;
                 temp.transform.rotation = transform.rotation;
             }
+
+            yield return new WaitForSeconds(fireDelay);
+            
+            //enum(State) 업데이트
+            state &= ~EnemyState.State.Fire;
         }
     }
 }

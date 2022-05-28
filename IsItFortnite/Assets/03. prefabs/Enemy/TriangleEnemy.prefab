@@ -109,7 +109,7 @@ MonoBehaviour:
   knockBackDuration: 0.1
   knockBackPwr: 2
   state: 0
-  fireDelay: 3
+  fireDelay: 5
 --- !u!1 &1433401757431076565
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,9 +207,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.00000423193, y: 1.5}
-      - {x: -1.55, y: -1.15}
-      - {x: 1.55, y: -1.15}
+    - - {x: 0.00000423193, y: 1.7}
+      - {x: -1.65, y: -1.15}
+      - {x: 1.65, y: -1.15}
 --- !u!1 &1433401757451798118
 GameObject:
   m_ObjectHideFlags: 0

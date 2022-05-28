@@ -7,11 +7,23 @@ public class PlayerDamaged : MonoBehaviour, IDamageable
     [SerializeField] float hp = 10f;
     [SerializeField] float knockBackDuration = 0.5f;
     [SerializeField] float knockBackPwr = 5f;
+    [SerializeField] int damage = 1;
     private Rigidbody2D rb2d = null;
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            IDamageable id = other.gameObject.GetComponent<IDamageable>();
+            OnDamage(damage);
+            if (id != null)
+                id.OnDamage(damage);
+        }
     }
 
     public void OnDamage(float dmg)
