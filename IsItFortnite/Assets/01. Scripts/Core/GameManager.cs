@@ -6,10 +6,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
 
     [SerializeField] Transform pooler;
-    [SerializeField] List<PoolableMono> poolList;
+    public List<PoolableMono> poolList;
     public Transform minPos;
     public Transform maxPos;
     public Transform player;
+    public int score = 0;
 
     private void Awake()
     {

@@ -170,17 +170,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5b97bee31670f4682aa742039168f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightObj: {fileID: 2958409097467904124}
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
   lookAt: {fileID: 2958409097778031756}
-  speed: 15
-  maxHP: 5
-  patrolDelay: 5
-  patrolDistance: 5
-  currentHP: 5
-  knockBackDuration: 0.5
-  knockBackPwr: 5
+  speed: 30
+  maxHP: 1
+  patrolDelay: 0
+  patrolDistance: 0
+  currentHP: 0
+  knockBackDuration: 0
+  knockBackPwr: 0
   state: 0
 --- !u!1 &2958409097467904124
 GameObject:

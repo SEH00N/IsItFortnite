@@ -15,18 +15,11 @@ public class CircleEnemy : Enemy, IDamageable
         //enum(State) 업데이트
         state |= EnemyState.State.Damaged;
 
+        StartCoroutine(Twinkle());
+
         currentHP -= dmg;
 
         StartCoroutine(KnockBack());
-
-        if (currentHP <= 0)
-            PoolManager.Instance.Enqueue(this);
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        Reset();
     }
 
     public override void Reset()
@@ -58,7 +51,7 @@ public class CircleEnemy : Enemy, IDamageable
                     temp.transform.rotation = Quaternion.Euler(0, 0, i * 360 / fireCount);
                 }
             }
-            
+
             yield return new WaitForSeconds(fireDelay);
 
             //enum(State) 업데이트

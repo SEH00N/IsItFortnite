@@ -13,18 +13,11 @@ public class TriangleEnemy : Enemy, IDamageable
         //enum(State) 업데이트
         state |= EnemyState.State.Damaged;
 
+        StartCoroutine(Twinkle());
+
         currentHP -= dmg;
 
         StartCoroutine(KnockBack());
-
-        if (currentHP <= 0)
-            PoolManager.Instance.Enqueue(this);
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        Reset();
     }
 
     public override void Reset()

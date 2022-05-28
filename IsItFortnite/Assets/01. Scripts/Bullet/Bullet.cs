@@ -43,7 +43,7 @@ public class Bullet : PoolableMono
     /// </summary>
     protected void IsNear(Collision2D other)
     {
-        if(other.gameObject.CompareTag(tagName[0]) || other.gameObject.CompareTag(tagName[1]))
+        if(other.gameObject.CompareTag(tagName[0]))
         {
             PoolManager.Instance.Enqueue(this);
             IDamageable id = other.gameObject.GetComponent<IDamageable>();

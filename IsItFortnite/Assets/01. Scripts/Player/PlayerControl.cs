@@ -97,7 +97,7 @@ public class PlayerControl : Character
     {
         Vector2 rotateDir = (transform.position - mousePos).normalized;
         float angle = Mathf.Atan2(rotateDir.y, rotateDir.x) * Mathf.Rad2Deg;
-        rotate.z = angle + 90;
+        rotate.z = angle + 90f;
         transform.rotation = Quaternion.Euler(rotate);
     }
 }

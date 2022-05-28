@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : PoolableMono
 {
+    [SerializeField] protected GameObject lightObj;
     [SerializeField] protected LayerMask playerLayer;
     [SerializeField] protected Transform lookAt;
     [SerializeField] protected float speed = 5f;
@@ -23,11 +24,6 @@ public class Enemy : PoolableMono
         col2d = GetComponent<Collider2D>();
     }
 
-    protected virtual void Start()
-    {
-        player = GameManager.Instance.player;
-    }
-
     protected virtual void Update()
     {
         Rotation();
@@ -35,6 +31,12 @@ public class Enemy : PoolableMono
 
     public override void Reset()
     {
+        //player Transform 캐싱
+        player = GameManager.Instance.player;
+
+        //위치 초기화
+        transform.position = EnemySpawner.Instance.randPos;
+
         //체력 초기화
         currentHP = maxHP;
     }
@@ -102,5 +104,25 @@ public class Enemy : PoolableMono
     protected bool IsNear()
     {
         return Physics2D.OverlapCircle(col2d.bounds.center, patrolDistance * 2, playerLayer);
+    }
+
+    /// <summary>
+    /// 빛 깜빡임
+    /// </summary>
+    protected IEnumerator Twinkle()
+    {
+        lightObj.SetActive(false);
+        yield return new WaitForSeconds(knockBackDuration);
+        lightObj.SetActive(true);
+        yield return new WaitForSeconds(knockBackDuration);
+        lightObj.SetActive(false);
+        yield return new WaitForSeconds(knockBackDuration);
+        lightObj.SetActive(true);
+
+        if (currentHP <= 0)
+        {
+            StopAllCoroutines();
+            PoolManager.Instance.Enqueue(this);
+        }
     }
 }
