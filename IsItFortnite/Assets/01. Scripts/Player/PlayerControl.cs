@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerControl : Character
 {
+    [SerializeField] Transform minTrm;
+    [SerializeField] Transform maxTrm;
     [SerializeField] Transform firePos;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] float fireDelay;
@@ -17,6 +19,7 @@ public class PlayerControl : Character
     private void Update()
     {
         Controlling();
+        Blocking();
     }
 
     /// <summary>
@@ -99,5 +102,18 @@ public class PlayerControl : Character
         float angle = Mathf.Atan2(rotateDir.y, rotateDir.x) * Mathf.Rad2Deg;
         rotate.z = angle + 90f;
         transform.rotation = Quaternion.Euler(rotate);
+    }
+
+    /// <summary>
+    /// 화면 탈출 방지
+    /// </summary>
+    private void Blocking()
+    {
+        Vector2 minPos = minTrm.position;
+        Vector2 maxPos = maxTrm.position;
+        Vector2 pos = transform.position;
+
+        Vector3 limitPos = new Vector3(Mathf.Clamp(pos.x, minPos.x, maxPos.x), Mathf.Clamp(pos.y, minPos.y, maxPos.y));
+        transform.position = limitPos;
     }
 }

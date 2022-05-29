@@ -45,10 +45,14 @@ public class Bullet : PoolableMono
     {
         if(other.gameObject.CompareTag(tagName[0]))
         {
-            PoolManager.Instance.Enqueue(this);
             IDamageable id = other.gameObject.GetComponent<IDamageable>();
             if (id != null)
-                id.OnDamage(damage);
+                id.OnDamage(damage, () => {
+                    TimeController.Instance.ModifyTimeScale(0.2f, 0.1f, () => {
+                        TimeController.Instance.ModifyTimeScale(1f, 0.1f);
+                    });
+                });
+            PoolManager.Instance.Enqueue(this);
         }
     }
 }

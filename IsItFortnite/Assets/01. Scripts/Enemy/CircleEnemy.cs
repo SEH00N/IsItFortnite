@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,10 +8,12 @@ public class CircleEnemy : Enemy, IDamageable
     [SerializeField] float fireDelay = 1f;
     [SerializeField] int fireCount = 8;
 
-    public void OnDamage(float dmg)
+    public void OnDamage(float dmg, Action freeze = null)
     {
         //State가 Damaged면 return
         if (state.HasFlag(EnemyState.State.Damaged)) return;
+
+        freeze?.Invoke();
 
         //enum(State) 업데이트
         state |= EnemyState.State.Damaged;
@@ -34,6 +37,8 @@ public class CircleEnemy : Enemy, IDamageable
 
     private IEnumerator Fire()
     {
+        yield return new WaitForSeconds(fireDelay);
+
         while (true)
         {
             //State가 Damaged면 break

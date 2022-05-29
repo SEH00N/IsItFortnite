@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     public Vector3 randPos;
 
 
-    private void Awake()
+    private void OnEnable()
     {
         if(Instance == null)
             Instance = this;
@@ -55,7 +55,16 @@ public class EnemySpawner : MonoBehaviour
             //에너미 생성
             PoolableMono temp = PoolManager.Instance.Dequeue(enemyList[randVal].name);
 
-            yield return new WaitForSeconds(spawnDelay);
+            yield return new WaitForSecondsRealtime(spawnDelay);
         }
     }
+
+    /// <summary>
+    /// SpawnEnemy 스탑 메소드
+    /// </summary>
+    public void StopMethod()
+    {
+        StopAllCoroutines();
+    }
+
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,13 +6,15 @@ public class TriangleEnemy : Enemy, IDamageable
 {
 [SerializeField] float fireDelay = 1f;
 
-    public void OnDamage(float dmg)
+    public void OnDamage(float dmg, Action freeze = null)
     {
         //State가 Damaged면 return
         if (state.HasFlag(EnemyState.State.Damaged)) return;
 
         //enum(State) 업데이트
         state |= EnemyState.State.Damaged;
+
+        freeze?.Invoke();
 
         StartCoroutine(Twinkle());
 
@@ -35,6 +38,8 @@ public class TriangleEnemy : Enemy, IDamageable
     /// </summary>
     private IEnumerator Fire()
     {
+        yield return new WaitForSeconds(fireDelay);
+
         while (true)
         {
             //State가 Damaged면 break

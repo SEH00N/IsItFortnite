@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,10 +7,12 @@ public class AsteriskEnemy : Enemy, IDamageable
     [SerializeField] GameObject bombCollider;
     [SerializeField] float bombDelay = 1f;
 
-    public void OnDamage(float dmg)
+    public void OnDamage(float dmg, Action freeze = null)
     {
         //State가 Damaged면 return
         if (state.HasFlag(EnemyState.State.Damaged)) return;
+
+        freeze?.Invoke();
 
         currentHP -= dmg;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 public class PoolManager
 {
     public static PoolManager Instance = null;
-    private Dictionary<string, Pool<PoolableMono>> pools = new Dictionary<string, Pool<PoolableMono>>();
+    public Dictionary<string, Pool<PoolableMono>> pools = new Dictionary<string, Pool<PoolableMono>>();
     private Transform parentTrm;
 
     /// <summary>
@@ -20,6 +20,7 @@ public class PoolManager
     /// </summary>
     public void CreatePool(PoolableMono prefab, int cnt)
     {
+        if(pools.ContainsKey(prefab.name)) return;
         Pool<PoolableMono> pool = new Pool<PoolableMono>(prefab, parentTrm, cnt);
         pools.Add(prefab.gameObject.name, pool);
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,17 +18,18 @@ public class GameManager : MonoBehaviour
     public float score = 0;
     public int balancing = 100;
 
-    private void Awake()
+    private void OnEnable()
     {
         //Instance 할당
-        if (GameManager.Instance == null)
-            Instance = this;
+        Instance = this;
 
-        if (PoolManager.Instance == null)
-            PoolManager.Instance = new PoolManager(pooler.transform);
+        PoolManager.Instance = new PoolManager(pooler.transform);
 
-        if (PlayerState.Instance == null)
-            PlayerState.Instance = new PlayerState();
+        PlayerState.Instance = new PlayerState();
+
+        GameObject timeController = new GameObject("TimeController");
+        timeController.transform.SetParent(transform);
+        TimeController.Instance = timeController.AddComponent<TimeController>();
 
         //풀러 생성
         foreach (PoolableMono temp in poolList)
@@ -65,9 +67,9 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("CurrentTime", Mathf.FloorToInt(currentTime));
         PlayerPrefs.SetInt("CurrentScore", Mathf.FloorToInt(score));
-        if(score > PlayerPrefs.GetInt("BestScore", 0))
+        if (score > PlayerPrefs.GetInt("BestScore", 0))
             PlayerPrefs.SetInt("BestScore", Mathf.FloorToInt(score));
-        if(currentTime > PlayerPrefs.GetInt("BestTime", 0))
+        if (currentTime > PlayerPrefs.GetInt("BestTime", 0))
             PlayerPrefs.SetInt("CurrentTime", Mathf.FloorToInt(currentTime));
     }
 
@@ -76,7 +78,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private IEnumerator IncreaseScore()
     {
-        while(true)
+        while (true)
         {
             score += currentTime / balancing;
             yield return new WaitForSeconds(5);

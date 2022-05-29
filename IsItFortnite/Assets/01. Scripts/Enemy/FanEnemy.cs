@@ -1,11 +1,14 @@
+using System;
 using UnityEngine;
 
 public class FanEnemy : Enemy, IDamageable
 {
     private float currentTime = 0;
 
-    public void OnDamage(float dmg)
+    public void OnDamage(float dmg, Action freeze = null)
     {
+        freeze?.Invoke();
+
         currentHP -= dmg;
 
         //스코어 증가

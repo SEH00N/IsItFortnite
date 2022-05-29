@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerDamaged : MonoBehaviour, IDamageable
 {
@@ -38,13 +39,15 @@ public class PlayerDamaged : MonoBehaviour, IDamageable
         }
     }
 
-    public void OnDamage(float dmg)
+    public void OnDamage(float dmg, Action freeze = null)
     {
         //State가 Damaged면 return
         if (PlayerState.Instance.state.HasFlag(PlayerState.State.Damaged)) return;
 
         //enum(State) 업데이트
         PlayerState.Instance.state |= PlayerState.State.Damaged;
+
+        freeze?.Invoke();
 
         hp -= dmg;
 
@@ -87,6 +90,8 @@ public class PlayerDamaged : MonoBehaviour, IDamageable
             StartCoroutine(Twinkle());
             yield return new WaitForSeconds(knockBackDuration);
 
+            EnemySpawner.Instance.StopMethod();
+            PoolManager.Instance.pools.Clear();
             GameManager.Instance.pooler.SetActive(false);
             yield return new WaitForSeconds(knockBackDuration);
 
