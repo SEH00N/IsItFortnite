@@ -11,7 +11,7 @@ public class Bullet : PoolableMono
 
     public override void Reset()
     {
-        throw new System.NotImplementedException();
+        currentTime = 0;
     }
 
     protected virtual void Update()
@@ -48,8 +48,8 @@ public class Bullet : PoolableMono
             IDamageable id = other.gameObject.GetComponent<IDamageable>();
             if (id != null)
                 id.OnDamage(damage, () => {
-                    TimeController.Instance.ModifyTimeScale(0.2f, 0.1f, () => {
-                        TimeController.Instance.ModifyTimeScale(1f, 0.1f);
+                    TimeController.Instance.ModifyTimeScale(0.1f, 0.1f, () => {
+                        TimeController.Instance.ModifyTimeScale(1f, 0.05f);
                     });
                 });
             PoolManager.Instance.Enqueue(this);

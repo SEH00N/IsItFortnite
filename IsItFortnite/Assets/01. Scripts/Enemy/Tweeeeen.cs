@@ -4,17 +4,26 @@ using DG.Tweening;
 
 public class Tweeeeen : MonoBehaviour
 {
+    [SerializeField] float duration = 1f;
+
     private void OnEnable()
     {
         StartCoroutine(Tweening());
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        transform.rotation = Quaternion.Euler(Vector3.zero);
     }
 
     private IEnumerator Tweening()
     {
         while(true)
         {
-            transform.DOLocalRotate(new Vector3(0, 0, transform.localRotation.z - 360), 1f, RotateMode.LocalAxisAdd);
-            yield return new WaitForSeconds(1.005f);
+            Sequence seq = DOTween.Sequence();
+            transform.DOLocalRotate(new Vector3(0f, 0f, 360f), duration, RotateMode.FastBeyond360).SetEase(Ease.Linear);
+            yield return new WaitForSeconds(duration);
         }
     }
 }

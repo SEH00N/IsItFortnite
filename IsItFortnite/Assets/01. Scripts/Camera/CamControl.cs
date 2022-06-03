@@ -6,6 +6,7 @@ public class CamControl : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera vCam;
     [SerializeField] CinemachineVirtualCamera vCam1;
+    [SerializeField] GameObject menuButton;
     [SerializeField] float noramlSize = 10f;
     [SerializeField] float zoomSize = 30f;
     private bool zoomed = false;
@@ -33,12 +34,14 @@ public class CamControl : MonoBehaviour
             vCam.m_Lens.OrthographicSize = zoomSize;
             zoomed = true;
             Time.timeScale = 0.1f;
+            menuButton.SetActive(true);
         }
         else if(Input.GetKeyDown(KeyCode.Escape) && zoomed)
         {
             Time.timeScale = 1;
             vCam.m_Lens.OrthographicSize = noramlSize;
             zoomed = false;
+            menuButton.SetActive(false);
         }
     }
 

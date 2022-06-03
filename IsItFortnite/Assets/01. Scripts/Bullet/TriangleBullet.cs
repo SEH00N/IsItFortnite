@@ -15,7 +15,6 @@ public class TriangleBullet : Bullet
 
     public override void Reset()
     {
-        currentTime = 0;
         StartCoroutine(SetState());
     }
 

@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GoToMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] RectTransform masterBoard;
 
-    // Update is called once per frame
-    void Update()
+    public void Menu()
     {
-        
+        Time.timeScale = 1;
+        masterBoard.DOLocalMoveX(-1920, 2f).OnComplete(() => {
+            SceneManager.LoadScene("Start");
+        });
     }
 }

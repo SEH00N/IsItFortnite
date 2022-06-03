@@ -30,7 +30,7 @@ public class PlayerControl : Character
         currentTime += Time.deltaTime;
         Vector3 rotate = transform.eulerAngles;
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             //State가 Damaged면 return
             if(PlayerState.Instance.state.HasFlag(PlayerState.State.Damaged)) return;

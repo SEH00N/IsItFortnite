@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - EnemyBullet
   - PlayerBullet
+  - Barier
   layers:
   - Default
   - TransparentFX
@@ -19,6 +20,7 @@ TagManager:
   - EnemyBullet
   - Player
   - PlayerBullet
+  - Barier
   - 
   - 
   - 
@@ -30,8 +32,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Test
   - 
   - 
   - 

@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         if (score > PlayerPrefs.GetInt("BestScore", 0))
             PlayerPrefs.SetInt("BestScore", Mathf.FloorToInt(score));
         if (currentTime > PlayerPrefs.GetInt("BestTime", 0))
-            PlayerPrefs.SetInt("CurrentTime", Mathf.FloorToInt(currentTime));
+            PlayerPrefs.SetInt("BestTime", Mathf.FloorToInt(currentTime));
     }
 
     /// <summary>

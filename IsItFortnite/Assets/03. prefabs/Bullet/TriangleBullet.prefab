@@ -147,8 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName:
   - Player
-  speed: 8
+  speed: 5
   damage: 1
   lifeTime: 6
   state: 0
-  followingDuration: 2
+  followingDuration: 1.5
