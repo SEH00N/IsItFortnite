@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName:
   - Player
-  speed: 8
+  speed: 6
   damage: 1
   lifeTime: 5
 --- !u!61 &9017614147643066229

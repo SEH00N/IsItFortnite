@@ -2329,7 +2329,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uC870\uC791\uBC95\n\n\uC6B0\uD074\uB9AD: \uBC1C\uC0AC \uBC0F \uC774\uB3D9\n\nesc:
-    \uC2AC\uB85C\uC6B0 \uBC0F \uC90C\n\nQ,W,E,R: \uC2A4\uD0AC"
+    \uC77C\uC2DC\uC815\uC9C0\n\nQ,W,E,R: \uC2A4\uD0AC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af4a1b85006de72418d458d7bcf2b33f, type: 2}
   m_sharedMaterial: {fileID: 6937863067672190822, guid: af4a1b85006de72418d458d7bcf2b33f, type: 2}

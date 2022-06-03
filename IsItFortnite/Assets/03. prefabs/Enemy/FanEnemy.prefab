@@ -175,7 +175,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   lookAt: {fileID: 2958409097778031756}
-  speed: 33.3
+  speed: 35
   maxHP: 1
   patrolDelay: 0
   patrolDistance: 0
