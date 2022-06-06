@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SpawnBlackHole : SkillBase
 {
+    [SerializeField] PoolableMono blackHole;
+
     /// <summary>
     /// 블랙홀 소환
     /// </summary>
@@ -9,9 +11,9 @@ public class SpawnBlackHole : SkillBase
     {
         if(coolDown > coolTime && Input.GetKeyDown(key))
         {
-            BlackHole bh = PoolManager.Instance.Dequeue("BlackHole") as BlackHole;
+            BlackHole bh = PoolManager.Instance.Dequeue(blackHole) as BlackHole;
             bh.transform.position = firePos.position;
-            bh.transform.rotation = transform.parent.rotation;
+            bh.transform.rotation = lookAt.rotation;
             coolDown = 0;
         }
     }

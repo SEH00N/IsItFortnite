@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 using System;
 
-public class PlayerDamaged : MonoBehaviour, IDamageable
+public class PlayerDamaged : Character, IDamageable
 {
     [SerializeField] GameObject lightObj;
     [SerializeField] GameObject fadeCavas;
@@ -13,15 +13,10 @@ public class PlayerDamaged : MonoBehaviour, IDamageable
     [SerializeField] Image fadeImage;
     [SerializeField] Image hpImage;
     [SerializeField] float hp = 10f;
-    [SerializeField] float knockBackDuration = 0.5f;
-    [SerializeField] float knockBackPwr = 5f;
     [SerializeField] int damage = 1;
-    private Rigidbody2D rb2d = null;
-
-    private void Awake()
-    {
-        rb2d = GetComponent<Rigidbody2D>();
-    }
+    private float twinkleDuration = 0.3f;
+    public float knockBackDuration = 0.5f;
+    public float knockBackPwr = 5f;
 
     private void Update()
     {
@@ -42,17 +37,18 @@ public class PlayerDamaged : MonoBehaviour, IDamageable
     public void OnDamage(float dmg, Action freeze = null)
     {
         //State가 Damaged면 return
-        if (PlayerState.Instance.state.HasFlag(PlayerState.State.Damaged)) return;
+        if (stateEnum.state.HasFlag(State.Damaged)) return;
 
         //enum(State) 업데이트
-        PlayerState.Instance.state |= PlayerState.State.Damaged;
+        stateEnum.state |= State.Damaged;
 
         freeze?.Invoke();
 
-        hp -= dmg;
-
         StartCoroutine(Twinkle());
         StartCoroutine(KnockBack());
+
+        hp -= dmg;
+
     }
 
     /// <summary>
@@ -69,7 +65,7 @@ public class PlayerDamaged : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(knockBackDuration);
 
         //State Flag에서 Damaged 제거
-        PlayerState.Instance.state &= ~PlayerState.State.Damaged;
+        stateEnum.state &= ~State.Damaged;
     }
 
     /// <summary>
@@ -78,22 +74,22 @@ public class PlayerDamaged : MonoBehaviour, IDamageable
     private IEnumerator Twinkle()
     {
         lightObj.SetActive(false);
-        yield return new WaitForSeconds(knockBackDuration);
+        yield return new WaitForSeconds(twinkleDuration);
         lightObj.SetActive(true);
-        yield return new WaitForSeconds(knockBackDuration);
+        yield return new WaitForSeconds(twinkleDuration);
         lightObj.SetActive(false);
-        yield return new WaitForSeconds(knockBackDuration);
+        yield return new WaitForSeconds(twinkleDuration);
         lightObj.SetActive(true);
 
         if (hp <= 0)
         {
             StartCoroutine(Twinkle());
-            yield return new WaitForSeconds(knockBackDuration);
+            yield return new WaitForSeconds(twinkleDuration);
 
             EnemySpawner.Instance.StopMethod();
             PoolManager.Instance.pools.Clear();
             GameManager.Instance.pooler.SetActive(false);
-            yield return new WaitForSeconds(knockBackDuration);
+            yield return new WaitForSeconds(twinkleDuration);
 
             GameOver();
         }

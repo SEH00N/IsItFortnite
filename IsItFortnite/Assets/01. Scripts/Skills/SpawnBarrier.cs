@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class SpawnBarrier : SkillBase
 {
+    [SerializeField] PoolableMono barrier;
+
     public void BarierOn()
     {
         if(coolDown > coolTime && Input.GetKeyDown(key))
         {
-            Barrier barrier = PoolManager.Instance.Dequeue("Barrier") as Barrier;
-            barrier.transform.position = GameManager.Instance.player.position;
+            Barrier temp = PoolManager.Instance.Dequeue(barrier) as Barrier;
+            temp.transform.position = GameManager.Instance.player.position;
             coolDown = 0;
         }
     }

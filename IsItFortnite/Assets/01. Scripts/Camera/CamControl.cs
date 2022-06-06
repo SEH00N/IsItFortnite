@@ -8,7 +8,6 @@ public class CamControl : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera vCam1;
     [SerializeField] GameObject pausePanel;
     [SerializeField] float noramlSize = 10f;
-    [SerializeField] float zoomSize = 30f;
     private bool zoomed = false;
 
     private void Start()
@@ -17,6 +16,7 @@ public class CamControl : MonoBehaviour
 
         //orthographic 사이즈 초기화
         vCam.m_Lens.OrthographicSize = noramlSize;
+        vCam.m_Follow = GameManager.Instance.player;
     }
 
     private void Update()

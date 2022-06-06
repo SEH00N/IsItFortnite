@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8225493515473941717}
   - component: {fileID: 8225493515473941716}
   - component: {fileID: 8225493515473941719}
+  - component: {fileID: 1056510869508637854}
   m_Layer: 7
   m_Name: CircleEnemy
   m_TagString: Enemy
@@ -97,10 +98,23 @@ MonoBehaviour:
   currentHP: 0
   knockBackDuration: 0.1
   knockBackPwr: 2
-  state: 0
+  bullet: {fileID: 2543693761361206074, guid: a5279a32f1ca425438a4749f556eceac, type: 3}
   firePos: {fileID: 8225493516151977686}
   fireDelay: 5
   fireCount: 8
+--- !u!114 &1056510869508637854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8225493515473941715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fec5ebede87efc46af9c7b6c57077f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
 --- !u!1 &8225493515815574448
 GameObject:
   m_ObjectHideFlags: 0

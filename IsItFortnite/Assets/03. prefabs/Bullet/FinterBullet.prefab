@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 8195587209713365648}
   - component: {fileID: 8195587209713365663}
   m_Layer: 8
-  m_Name: TriangleBullet
+  m_Name: FinterBullet
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,10 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474a053bc3a78a242ba0d0f6d28d9972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagName:
-  - Player
+  tagName: []
   speed: 5
-  damage: 1
-  lifeTime: 6
+  damage: 5
+  lifeTime: 10
   state: 0
-  followingDuration: 1.5
+  followingDuration: 1

@@ -2,22 +2,20 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class CircleEnemy : Enemy, IDamageable
+public class GGP : Enemy, IDamageable
 {
     [SerializeField] PoolableMono bullet;
-    [SerializeField] Transform firePos;
-    [SerializeField] float fireDelay = 1f;
-    [SerializeField] int fireCount = 8;
+    [SerializeField] float fireDelay = 3f;
 
     public void OnDamage(float dmg, Action freeze = null)
     {
         //State가 Damaged면 return
         if (stateEnum.state.HasFlag(State.Damaged)) return;
 
-        freeze?.Invoke();
-
         //enum(State) 업데이트
         stateEnum.state |= State.Damaged;
+
+        freeze?.Invoke();
 
         StartCoroutine(Twinkle());
 
@@ -45,20 +43,15 @@ public class CircleEnemy : Enemy, IDamageable
             //State가 Damaged면 break
             if (stateEnum.state.HasFlag(State.Damaged)) break;
 
-
             //순찰 범위 안에 플레이어가 있으면 발사
             if (IsNear())
             {
                 //enum(State) 업데이트
                 stateEnum.state |= State.Fire;
 
-                //8방향으로 방사형 발사
-                for (int i = 0; i < fireCount; i++)
-                {
-                    CircleBullet temp = PoolManager.Instance.Dequeue(bullet) as CircleBullet;
-                    temp.transform.position = firePos.position;
-                    temp.transform.rotation = Quaternion.Euler(0, 0, i * 360 / fireCount);
-                }
+                GGPBullet temp = PoolManager.Instance.Dequeue(bullet) as GGPBullet;
+                temp.transform.position = lookAt.position;
+                temp.transform.rotation = transform.rotation;
             }
 
             yield return new WaitForSeconds(fireDelay);

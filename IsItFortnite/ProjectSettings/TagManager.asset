@@ -8,6 +8,8 @@ TagManager:
   - EnemyBullet
   - PlayerBullet
   - Barier
+  - SleepArea
+  - test
   layers:
   - Default
   - TransparentFX

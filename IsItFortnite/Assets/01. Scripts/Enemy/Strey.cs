@@ -2,17 +2,18 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class TriangleEnemy : Enemy, IDamageable
+public class Strey : Enemy, IDamageable
 {
-[SerializeField] float fireDelay = 1f;
+    [SerializeField] PoolableMono bullet;
+    [SerializeField] float fireDelay = 1f;
 
     public void OnDamage(float dmg, Action freeze = null)
     {
         //State가 Damaged면 return
-        if (state.HasFlag(EnemyState.State.Damaged)) return;
+        if (stateEnum.state.HasFlag(State.Damaged)) return;
 
         //enum(State) 업데이트
-        state |= EnemyState.State.Damaged;
+        stateEnum.state |= State.Damaged;
 
         freeze?.Invoke();
 
@@ -43,23 +44,24 @@ public class TriangleEnemy : Enemy, IDamageable
         while (true)
         {
             //State가 Damaged면 break
-            if (state.HasFlag(EnemyState.State.Damaged)) break;
+            if (stateEnum.state.HasFlag(State.Damaged)) break;
+
 
             //순찰 범위 안에 플레이어가 있으면 발사
             if(IsNear())
             {
                 //enum(State) 업데이트
-                state |= EnemyState.State.Fire;
+                stateEnum.state |= State.Fire;
 
-                TriangleBullet temp =  PoolManager.Instance.Dequeue("TriangleBullet") as TriangleBullet;
+                StreyBullet temp =  PoolManager.Instance.Dequeue(bullet) as StreyBullet;
                 temp.transform.position = lookAt.position;
                 temp.transform.rotation = transform.rotation;
             }
 
             yield return new WaitForSeconds(fireDelay);
-            
+
             //enum(State) 업데이트
-            state &= ~EnemyState.State.Fire;
+            stateEnum.state &= ~State.Fire;
         }
     }
 }

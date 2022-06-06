@@ -83,8 +83,9 @@ GameObject:
   - component: {fileID: 2958409097010824366}
   - component: {fileID: 2958409097010824364}
   - component: {fileID: 2958409097010824363}
+  - component: {fileID: -1487410922303857558}
   m_Layer: 7
-  m_Name: FanEnemy
+  m_Name: Striker
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,13 +176,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   lookAt: {fileID: 2958409097778031756}
-  speed: 35
-  maxHP: 1
+  speed: 5
+  maxHP: 5
   patrolDelay: 0
   patrolDistance: 0
   currentHP: 0
-  knockBackDuration: 0
-  knockBackPwr: 0
+  knockBackDuration: 0.1
+  knockBackPwr: 2
+--- !u!114 &-1487410922303857558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958409097010824367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fec5ebede87efc46af9c7b6c57077f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   state: 0
 --- !u!1 &2958409097467904124
 GameObject:

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SkillBase : MonoBehaviour
 {
+    [SerializeField] protected Transform lookAt;
     [SerializeField] protected Transform firePos;
     [SerializeField] protected KeyCode key;
     public float coolTime = 10;

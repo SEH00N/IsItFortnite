@@ -13,15 +13,16 @@ public class Enemy : PoolableMono
     [SerializeField] protected float currentHP = 0;
     [SerializeField] protected float knockBackDuration = 0.5f;
     [SerializeField] protected float knockBackPwr = 5f;
-    [SerializeField] protected EnemyState.State state = EnemyState.State.Idle;
     protected Rigidbody2D rb2d = null;
     protected Collider2D col2d = null;
+    protected StateEnum stateEnum = null;
     protected Transform player;
 
     protected virtual void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
+        stateEnum = GetComponent<StateEnum>();
     }
 
     protected virtual void Update()
@@ -38,7 +39,7 @@ public class Enemy : PoolableMono
         transform.position = EnemySpawner.Instance.randPos;
 
         //enum(State) 초기화
-        state = EnemyState.State.Idle;
+        stateEnum.state = State.Idle;
 
         //체력 초기화
         currentHP = maxHP;
@@ -52,10 +53,10 @@ public class Enemy : PoolableMono
         while (true)
         {
             //State가 Damaged면 break
-            if(!state.HasFlag(EnemyState.State.Damaged))
+            if(!stateEnum.state.HasFlag(State.Damaged))
             {
                 //enum(State) 업데이트
-                state |= EnemyState.State.Move;
+                stateEnum.state |= State.Move;
 
                 float angle = Random.Range(0, 360f) * Mathf.Rad2Deg;
                 //반지름이 patrolDistance인 원주의 임의의 점을 구함
@@ -98,7 +99,7 @@ public class Enemy : PoolableMono
         yield return new WaitForSeconds(knockBackDuration);
 
         //State Flag에서 Damaged 제거
-        state &= ~EnemyState.State.Damaged;
+        stateEnum.state &= ~State.Damaged;
     }
 
     /// <summary>

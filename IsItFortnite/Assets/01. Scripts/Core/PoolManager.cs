@@ -28,9 +28,9 @@ public class PoolManager
     /// <summary>
     /// 풀매니저 딕셔너리에서 해당 이름의 오브젝트 Dequeue
     /// </summary>
-    public PoolableMono Dequeue(string prefabName)
+    public PoolableMono Dequeue(PoolableMono prefab)
     {
-        PoolableMono temp = pools[prefabName].Dequeue();
+        PoolableMono temp = pools[prefab.name].Dequeue();
         temp.Reset();
         return temp;
     }
@@ -38,8 +38,8 @@ public class PoolManager
     /// <summary>
     /// 풀매니저 딕셔너리에 해당 이름으로 Enqueue
     /// </summary>
-    public void Enqueue(PoolableMono temp)
+    public void Enqueue(PoolableMono prefab)
     {
-        pools[temp.name].Enqueue(temp);
+        pools[prefab.name].Enqueue(prefab);
     }
 }

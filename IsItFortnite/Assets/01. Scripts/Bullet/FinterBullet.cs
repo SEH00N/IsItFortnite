@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 
-public class TriangleBullet : Bullet
+public class FinterBullet : Bullet
 {
     public enum State
     {

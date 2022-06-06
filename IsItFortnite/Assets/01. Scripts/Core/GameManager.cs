@@ -8,12 +8,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
 
+    public Transform player = null;
     public List<PoolableMono> poolList;
     public TextMeshProUGUI scoreTxt;
     public GameObject pooler;
     public Transform minPos;
     public Transform maxPos;
-    public Transform player;
     public float currentTime;
     public float score = 0;
     public int balancing = 100;
@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
 
         PoolManager.Instance = new PoolManager(pooler.transform);
 
-        PlayerState.Instance = new PlayerState();
-
         GameObject timeController = new GameObject("TimeController");
         timeController.transform.SetParent(transform);
         TimeController.Instance = timeController.AddComponent<TimeController>();
@@ -34,6 +32,8 @@ public class GameManager : MonoBehaviour
         //풀러 생성
         foreach (PoolableMono temp in poolList)
             PoolManager.Instance.CreatePool(temp, 5);
+
+            player = GameObject.FindWithTag("Player").transform;
     }
 
     private void Start()

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SquareBullet : Bullet
+public class StreyBullet : Bullet
 {
     private void OnCollisionEnter2D(Collision2D other)
     {

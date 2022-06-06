@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class AsteriskEnemy : Enemy, IDamageable
+public class Boomer : Enemy, IDamageable
 {
     [SerializeField] GameObject bombCollider;
     [SerializeField] float bombDelay = 1f;
@@ -10,7 +10,7 @@ public class AsteriskEnemy : Enemy, IDamageable
     public void OnDamage(float dmg, Action freeze = null)
     {
         //State가 Damaged면 return
-        if (state.HasFlag(EnemyState.State.Damaged)) return;
+        if (stateEnum.state.HasFlag(State.Damaged)) return;
 
         freeze?.Invoke();
 
@@ -34,7 +34,7 @@ public class AsteriskEnemy : Enemy, IDamageable
     private IEnumerator Bomb()
     {
         //enum(State) 업데이트
-        state |= EnemyState.State.Damaged;
+        stateEnum.state |= State.Damaged;
 
         lightObj.SetActive(false);
         yield return new WaitForSeconds(bombDelay / 3f);
@@ -49,7 +49,7 @@ public class AsteriskEnemy : Enemy, IDamageable
         bombCollider.SetActive(false);
 
         //enum(State) 업데이트
-        state &= ~EnemyState.State.Damaged;
+        stateEnum.state &= ~State.Damaged;
 
         gameObject.SetActive(false);
 
@@ -63,10 +63,10 @@ public class AsteriskEnemy : Enemy, IDamageable
     private void Movement()
     {
         //State가 Damaged면 return
-        if (state.HasFlag(EnemyState.State.Damaged)) return;
+        if (stateEnum.state.HasFlag(State.Damaged)) return;
 
         //enum(State) 업데이트
-        state |= EnemyState.State.Move;
+        stateEnum.state |= State.Move;
 
         transform.Translate(Vector3.up * speed * Time.deltaTime);
     }

@@ -247,11 +247,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6005692768191415986}
-  - component: {fileID: 6005692768191415985}
   - component: {fileID: 6005692768191415984}
   - component: {fileID: 6005692768191415999}
+  - component: {fileID: 6005692768191415985}
+  - component: {fileID: 7764149356484837259}
   m_Layer: 7
-  m_Name: AsteriskEnemy
+  m_Name: Boomer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,33 +275,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6005692768191415985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6005692768191415987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7efe4572959e7f94f95e3b188d8696a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightObj: {fileID: 6005692767775418294}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  lookAt: {fileID: 6005692768099503806}
-  speed: 4
-  maxHP: 1
-  patrolDelay: 0
-  patrolDistance: 0
-  currentHP: 0
-  knockBackDuration: 0
-  knockBackPwr: 0
-  state: 0
-  bombCollider: {fileID: 6005692768583577408}
-  bombDelay: 1
 --- !u!58 &6005692768191415984
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -338,6 +312,45 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6005692768191415985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005692768191415987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efe4572959e7f94f95e3b188d8696a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightObj: {fileID: 6005692767775418294}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  lookAt: {fileID: 6005692768099503806}
+  speed: 4
+  maxHP: 8
+  patrolDelay: 0
+  patrolDistance: 0
+  currentHP: 0
+  knockBackDuration: 0
+  knockBackPwr: 0
+  bombCollider: {fileID: 6005692768583577408}
+  bombDelay: 1
+--- !u!114 &7764149356484837259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005692768191415987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fec5ebede87efc46af9c7b6c57077f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
 --- !u!1 &6005692768379129480
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,7 +41,7 @@ public class Bullet : PoolableMono
     /// <summary>
     /// 콜라이더가 tagName과 닿았을 때 tagNamge의 OnDamage인터페이스 호출 and Enqueue
     /// </summary>
-    protected void IsNear(Collision2D other)
+    protected virtual void IsNear(Collision2D other)
     {
         if(other.gameObject.CompareTag(tagName[0]))
         {

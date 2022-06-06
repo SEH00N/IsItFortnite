@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float distance = 10f;
     [SerializeField] float spawnDelay = 10f;
     [SerializeField] float limitSpawnDealay = 3f;
-    private int randVal = 0;
+    private int randVal;
     public Vector3 randPos;
 
 
@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
             randPos = transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
 
             //에너미 생성
-            PoolableMono temp = PoolManager.Instance.Dequeue(enemyList[randVal].name);
+            PoolableMono temp = PoolManager.Instance.Dequeue(enemyList[randVal]);
 
             yield return new WaitForSecondsRealtime(spawnDelay);
         }
