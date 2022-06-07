@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Boomer : Enemy, IDamageable
+public class Boomer1 : Enemy, IDamageable
 {
     [SerializeField] GameObject bombCollider;
     [SerializeField] float bombDelay = 1f;

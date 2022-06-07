@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Striker : Enemy, IDamageable
+public class Striker1 : Enemy, IDamageable
 {
     [SerializeField] float damage = 2f;
 

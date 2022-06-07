@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Letis : Enemy, IDamageable
+public class Letis1 : Enemy, IDamageable
 {
     [SerializeField] float sleepDistance = 7f;
     [SerializeField] float sleepDelay = 7f;
