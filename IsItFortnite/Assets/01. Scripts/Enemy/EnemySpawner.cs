@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         //StartCoroutine(PhaseUpdate());
-        StartCoroutine(SpawnPhase(phase2));
+        StartCoroutine(SpawnPhase(phase3));
     }
 
     private void Update()

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7441891674874137946}
   - component: {fileID: 7441891674874137948}
-  - component: {fileID: 8848869195553375087}
-  - component: {fileID: 7441891674874137949}
+  - component: {fileID: 8189233875870878878}
+  - component: {fileID: 5411735150142650055}
   m_Layer: 8
-  m_Name: GGPBullet 1
+  m_Name: GGPBullet 2
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7441891674874137945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.26, y: 5.45, z: -34.705418}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &8848869195553375087
+--- !u!70 &8189233875870878878
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +100,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
---- !u!114 &7441891674874137949
+--- !u!114 &5411735150142650055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,11 +109,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7441891674874137945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af50aa93cd5b7324a9fc909309e311c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e2779199e62fba4aa462ae1dce5a817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tagName:
   - Player
-  speed: 5
+  speed: 7
   damage: 0
   lifeTime: 15

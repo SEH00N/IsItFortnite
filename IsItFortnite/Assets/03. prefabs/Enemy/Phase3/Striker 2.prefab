@@ -82,10 +82,10 @@ GameObject:
   - component: {fileID: 2958409097010824365}
   - component: {fileID: 2958409097010824366}
   - component: {fileID: 2958409097010824364}
-  - component: {fileID: -4235753618681251466}
+  - component: {fileID: 7254507913799010002}
   - component: {fileID: -1487410922303857558}
   m_Layer: 7
-  m_Name: Striker 1
+  m_Name: Striker 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 2958409097010824367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.08, y: -8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 2958409097778031756}
   - {fileID: 2958409097467904123}
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-4235753618681251466
+--- !u!114 &7254507913799010002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2958409097010824367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9795e14e296b0844aa83a98163ae6ca3, type: 3}
+  m_Script: {fileID: 11500000, guid: 467461df47bf4df43827186bd0d083d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lightObj: {fileID: 2958409097467904124}
@@ -176,14 +176,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   lookAt: {fileID: 2958409097778031756}
-  speed: 5
-  maxHP: 5
+  speed: 20
+  maxHP: 2
   patrolDelay: 0
   patrolDistance: 0
   currentHP: 0
   knockBackDuration: 0.1
   knockBackPwr: 2
-  damage: 10
+  damage: 5
 --- !u!114 &-1487410922303857558
 MonoBehaviour:
   m_ObjectHideFlags: 0

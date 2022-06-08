@@ -484,7 +484,13 @@ MonoBehaviour:
   - {fileID: 1050563878004327205, guid: 73dcbcad80a193e41959861e2962d50e, type: 3}
   - {fileID: -4243034940544522673, guid: 83f3ed33be8302544b44bea8973b8b3c, type: 3}
   - {fileID: -4235753618681251466, guid: cc81a2ebbded6054db091e5858c9adfc, type: 3}
-  phase3: []
+  - {fileID: -663416917159156237, guid: 7e8f8351cce80fb44a4ba2ccb3f60f2e, type: 3}
+  phase3:
+  - {fileID: 5298209299366297223, guid: 8170c32fdfacc9c4991f42156aa77a5c, type: 3}
+  - {fileID: 1894326265607940290, guid: 7dcd2726cd31ab540a83080f2b9bbc85, type: 3}
+  - {fileID: 5512342625815570404, guid: b6a48adc095111443afef42273858ee2, type: 3}
+  - {fileID: 7254507913799010002, guid: 2a741283852787646be4f1d879f4912a, type: 3}
+  - {fileID: -663416917159156237, guid: 3f31e24489a23c3458d0487354805715, type: 3}
   distance: 40
   spawnDelay: 1
   limitSpawnDealay: 1
@@ -643,6 +649,19 @@ MonoBehaviour:
   - {fileID: 1050563878004327205, guid: 73dcbcad80a193e41959861e2962d50e, type: 3}
   - {fileID: 7441891674874137949, guid: a0dc97516c7713a449c56d5bbf4c79e6, type: 3}
   - {fileID: 4602751383738988953, guid: f75af51b0cd8b1a43991cf6706c533b1, type: 3}
+  - {fileID: -663416917159156237, guid: 7e8f8351cce80fb44a4ba2ccb3f60f2e, type: 3}
+  - {fileID: 8195587209713365663, guid: e5e8ad9bf22df0f41b60fd6442a58264, type: 3}
+  - {fileID: 5641987344398419054, guid: a796ddf0e82853f4f8018faa2f5db271, type: 3}
+  - {fileID: 4493540201221214205, guid: 2a3abdcff06ed854582e7ddd31888ad9, type: 3}
+  - {fileID: 8195587209713365663, guid: 7ee833691e6153943a50bde7c7a99399, type: 3}
+  - {fileID: 5298209299366297223, guid: 8170c32fdfacc9c4991f42156aa77a5c, type: 3}
+  - {fileID: 7254507913799010002, guid: 2a741283852787646be4f1d879f4912a, type: 3}
+  - {fileID: 5411735150142650055, guid: 344154ce981fb6c42ab15f7cc07d9659, type: 3}
+  - {fileID: 1894326265607940290, guid: 7dcd2726cd31ab540a83080f2b9bbc85, type: 3}
+  - {fileID: -663416917159156237, guid: 3f31e24489a23c3458d0487354805715, type: 3}
+  - {fileID: 4493540201221214205, guid: 07f19668a19f1b44c94d594bccb7ee85, type: 3}
+  - {fileID: 3996897951834536996, guid: 40e1e32dbd583ac4ea1bbbe69b7fd50c, type: 3}
+  - {fileID: 5512342625815570404, guid: b6a48adc095111443afef42273858ee2, type: 3}
   scoreTxt: {fileID: 1711463217}
   pooler: {fileID: 1204920711}
   minPos: {fileID: 2139537437}
@@ -3331,7 +3350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66871b6e60cd2fd48a27b02200084230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0
   rb2d: {fileID: 0}
   lightObj: {fileID: 235452022}
   fadeCavas: {fileID: 201833698}
@@ -3342,6 +3361,7 @@ MonoBehaviour:
   damage: 1
   knockBackDuration: 0.3
   knockBackPwr: 3
+  isSlow: 0
 --- !u!114 &1782786935
 MonoBehaviour:
   m_ObjectHideFlags: 0

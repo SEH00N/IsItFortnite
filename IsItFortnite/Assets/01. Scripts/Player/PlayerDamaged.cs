@@ -17,10 +17,14 @@ public class PlayerDamaged : Character, IDamageable
     private float twinkleDuration = 0.3f;
     public float knockBackDuration = 0.5f;
     public float knockBackPwr = 5f;
+    public bool isSlow = false;
 
     private void Update()
     {
         hpImage.fillAmount = hp / 6;
+
+        if(isSlow)
+            StartCoroutine(Slow(4, 2));
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -32,6 +36,27 @@ public class PlayerDamaged : Character, IDamageable
             if (id != null)
                 id.OnDamage(damage);
         }
+    }
+
+    public IEnumerator Poison(float count)
+    {
+        for(int i = 0; i < count; i ++)
+        {
+            OnDamage(0.5f, () => {
+                StartCoroutine(Slow(5, 0.5f));
+            });
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    public IEnumerator Slow(float val, float time)
+    {
+        isSlow = false;
+        PlayerControl pc = GetComponent<PlayerControl>();
+        float fSpeed = pc.speed;
+        pc.speed -= val;
+        yield return new WaitForSeconds(time);
+        pc.speed = fSpeed;
     }
 
     public void OnDamage(float dmg, Action freeze = null)
