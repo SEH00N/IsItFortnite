@@ -25,6 +25,17 @@ public class Boomer1 : Enemy, IDamageable
         StartCoroutine(KnockBack());
     }
 
+    protected override IEnumerator Twinkle()
+    {
+        lightObj.SetActive(false);
+        yield return new WaitForSeconds(knockBackDuration);
+        lightObj.SetActive(true);
+        yield return new WaitForSeconds(knockBackDuration);
+        lightObj.SetActive(false);
+        yield return new WaitForSeconds(knockBackDuration);
+        lightObj.SetActive(true);
+    }
+
     protected override void Update()
     {
         base.Update();

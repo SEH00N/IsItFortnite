@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : Character
 {
+    [SerializeField] List<PoolableMono> bulletList;
     [SerializeField] Transform minTrm;
     [SerializeField] Transform maxTrm;
     [SerializeField] Transform lookAt;
@@ -11,6 +13,7 @@ public class PlayerControl : Character
     [SerializeField] float fireDelay;
     private Camera cam = null;
     private float currentTime = 0;
+    public int bulletIndex = 0;
 
     protected override void Awake()
     {
@@ -24,6 +27,8 @@ public class PlayerControl : Character
         PlayerRotation(mousePos);
         Controlling(mousePos);
         Blocking();
+
+        bulletIndex = Mathf.Clamp(bulletIndex, 0, bulletList.Count - 1);
     }
 
     /// <summary>
@@ -62,13 +67,13 @@ public class PlayerControl : Character
             Vector3 pos = transform.position;
 
             //총알 풀링
-            Laser temp = PoolManager.Instance.Dequeue(laser) as Laser;
+            PoolableMono bullet = PoolManager.Instance.Dequeue(bulletList[bulletIndex]) as PoolableMono;
 
             //총알 위치 초기화
-            temp.transform.position = firePos.position;
+            bullet.transform.position = firePos.position;
 
             //총알의 각도 초기화(플레이어의 각도)
-            temp.transform.rotation = Quaternion.Euler(rotate);
+            bullet.transform.rotation = Quaternion.Euler(rotate);
 
             //딜레이 시간 초기화
             currentTime = 0;

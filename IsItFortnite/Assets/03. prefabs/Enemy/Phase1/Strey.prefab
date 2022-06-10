@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0b9fd2c0ab8394fb0194d05251f8b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUp: {fileID: 8772525204501596283, guid: 55491f257a9999944afe594e6ce90e4c, type: 3}
   lightObj: {fileID: 7496780192783864973}
   playerLayer:
     serializedVersion: 2

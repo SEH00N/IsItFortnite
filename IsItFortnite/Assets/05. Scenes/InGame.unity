@@ -486,6 +486,7 @@ MonoBehaviour:
   - {fileID: -4235753618681251466, guid: cc81a2ebbded6054db091e5858c9adfc, type: 3}
   - {fileID: -663416917159156237, guid: 7e8f8351cce80fb44a4ba2ccb3f60f2e, type: 3}
   phase3:
+  - {fileID: 4602751383738988953, guid: 0ea16f1f6a695b443a270d6433f73f41, type: 3}
   - {fileID: 5298209299366297223, guid: 8170c32fdfacc9c4991f42156aa77a5c, type: 3}
   - {fileID: 1894326265607940290, guid: 7dcd2726cd31ab540a83080f2b9bbc85, type: 3}
   - {fileID: 5512342625815570404, guid: b6a48adc095111443afef42273858ee2, type: 3}
@@ -662,6 +663,8 @@ MonoBehaviour:
   - {fileID: 4493540201221214205, guid: 07f19668a19f1b44c94d594bccb7ee85, type: 3}
   - {fileID: 3996897951834536996, guid: 40e1e32dbd583ac4ea1bbbe69b7fd50c, type: 3}
   - {fileID: 5512342625815570404, guid: b6a48adc095111443afef42273858ee2, type: 3}
+  - {fileID: 4602751383738988953, guid: 0ea16f1f6a695b443a270d6433f73f41, type: 3}
+  - {fileID: 8772525204501596283, guid: 55491f257a9999944afe594e6ce90e4c, type: 3}
   scoreTxt: {fileID: 1711463217}
   pooler: {fileID: 1204920711}
   minPos: {fileID: 2139537437}
@@ -2348,15 +2351,15 @@ RectTransform:
   m_GameObject: {fileID: 1030398628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 663620498}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -930.00006, y: 405.59995}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 427, y: -454}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1030398630
 MonoBehaviour:
@@ -2378,7 +2381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9bce33af0690f824d8f720e8a3184cc1, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3357,11 +3360,12 @@ MonoBehaviour:
   lookAt: {fileID: 436106450}
   fadeImage: {fileID: 177382770}
   hpImage: {fileID: 1030398630}
-  hp: 100
+  maxHP: 100
   damage: 1
   knockBackDuration: 0.3
   knockBackPwr: 3
   isSlow: 0
+  isPoison: 0
 --- !u!114 &1782786935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3376,6 +3380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   rb2d: {fileID: 0}
+  bulletList:
+  - {fileID: 8730861315387101728, guid: 8556da16ee012ec4785e58d6c70e4448, type: 3}
   minTrm: {fileID: 2139537437}
   maxTrm: {fileID: 323610897}
   lookAt: {fileID: 786440551}
@@ -3385,6 +3391,7 @@ MonoBehaviour:
     m_Bits: 128
   laser: {fileID: 8730861315387101728, guid: 8556da16ee012ec4785e58d6c70e4448, type: 3}
   fireDelay: 0.3
+  bulletIndex: 0
 --- !u!1 &2081797712
 GameObject:
   m_ObjectHideFlags: 0

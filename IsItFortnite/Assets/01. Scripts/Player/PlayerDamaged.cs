@@ -12,19 +12,28 @@ public class PlayerDamaged : Character, IDamageable
     [SerializeField] Transform lookAt;
     [SerializeField] Image fadeImage;
     [SerializeField] Image hpImage;
-    [SerializeField] float hp = 10f;
+    [SerializeField] float maxHP = 10f;
     [SerializeField] int damage = 1;
+    private float currentHP = 0;
     private float twinkleDuration = 0.3f;
     public float knockBackDuration = 0.5f;
     public float knockBackPwr = 5f;
     public bool isSlow = false;
+    public bool isPoison = false;
+
+    private void OnEnable()
+    {
+        currentHP = maxHP;
+    }
 
     private void Update()
     {
-        hpImage.fillAmount = hp / 6;
+        hpImage.fillAmount = currentHP / maxHP;
 
         if(isSlow)
             StartCoroutine(Slow(4, 2));
+        if(isPoison)
+            StartCoroutine(Poison(5));
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -40,9 +49,11 @@ public class PlayerDamaged : Character, IDamageable
 
     public IEnumerator Poison(float count)
     {
+        isPoison = false;
+
         for(int i = 0; i < count; i ++)
         {
-            OnDamage(0.5f, () => {
+            OnDamage(1f, () => {
                 StartCoroutine(Slow(5, 0.5f));
             });
             yield return new WaitForSeconds(1f);
@@ -72,7 +83,7 @@ public class PlayerDamaged : Character, IDamageable
         StartCoroutine(Twinkle());
         StartCoroutine(KnockBack());
 
-        hp -= dmg;
+        currentHP -= dmg;
 
     }
 
@@ -106,7 +117,7 @@ public class PlayerDamaged : Character, IDamageable
         yield return new WaitForSeconds(twinkleDuration);
         lightObj.SetActive(true);
 
-        if (hp <= 0)
+        if (currentHP <= 0)
         {
             StartCoroutine(Twinkle());
             yield return new WaitForSeconds(twinkleDuration);

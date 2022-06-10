@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : PoolableMono
 {
+    [SerializeField] protected PoolableMono powerUp;
     [SerializeField] protected GameObject lightObj;
     [SerializeField] protected LayerMask playerLayer;
     [SerializeField] protected Transform lookAt;
@@ -113,7 +114,7 @@ public class Enemy : PoolableMono
     /// <summary>
     /// 빛 깜빡임
     /// </summary>
-    protected IEnumerator Twinkle()
+    protected virtual IEnumerator Twinkle()
     {
         lightObj.SetActive(false);
         yield return new WaitForSeconds(knockBackDuration);
@@ -127,6 +128,16 @@ public class Enemy : PoolableMono
         {
             StopAllCoroutines();
             PoolManager.Instance.Enqueue(this);
+        }
+    }
+
+    private void SpawnPowerUp()
+    {
+        float randVal = Random.Range(0, 100);
+        if(randVal > 95)
+        {
+            PoolableMono temp = PoolManager.Instance.Dequeue(powerUp);
+            temp.transform.position = transform.position;
         }
     }
 }
