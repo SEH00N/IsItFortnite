@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class JaksalPyok : SkillBase
 {
+    [SerializeField] List<Transform> firePoses;
     [SerializeField] Laser bullet;
     [SerializeField] int count = 5;
     [SerializeField] float fireDelay = 0.5f;
@@ -18,12 +20,17 @@ public class JaksalPyok : SkillBase
 
     private IEnumerator Pyok()
     {
+        int c = 0;
         for(int i = 0; i < count; i ++)
         {
             Laser cb = PoolManager.Instance.Dequeue(bullet) as Laser;
-            cb.transform.position = firePos.position;
+            cb.transform.position = firePoses[c].position;
             cb.transform.rotation = lookAt.rotation;
             yield return new WaitForSeconds(fireDelay);
+            if(c >= firePoses.Count - 1)
+                c = 0;
+            else
+                c++;
         }
     }
 }

@@ -14,6 +14,7 @@ public class Enemy : PoolableMono
     [SerializeField] protected float currentHP = 0;
     [SerializeField] protected float knockBackDuration = 0.5f;
     [SerializeField] protected float knockBackPwr = 5f;
+    private SpriteRenderer sp = null;
     protected Rigidbody2D rb2d = null;
     protected Collider2D col2d = null;
     protected StateEnum stateEnum = null;
@@ -23,6 +24,7 @@ public class Enemy : PoolableMono
     {
         rb2d = GetComponent<Rigidbody2D>();
         col2d = GetComponent<Collider2D>();
+        sp = GetComponentInChildren<SpriteRenderer>();
         stateEnum = GetComponent<StateEnum>();
     }
 
@@ -44,6 +46,8 @@ public class Enemy : PoolableMono
 
         //체력 초기화
         currentHP = maxHP;
+
+        sp.color = Color.white;
     }
 
     /// <summary>
@@ -116,13 +120,11 @@ public class Enemy : PoolableMono
     /// </summary>
     protected virtual IEnumerator Twinkle()
     {
-        lightObj.SetActive(false);
+        sp.color = Color.red;
         yield return new WaitForSeconds(knockBackDuration);
-        lightObj.SetActive(true);
+        sp.color = Color.white;
         yield return new WaitForSeconds(knockBackDuration);
-        lightObj.SetActive(false);
-        yield return new WaitForSeconds(knockBackDuration);
-        lightObj.SetActive(true);
+
 
         if (currentHP <= 0)
         {

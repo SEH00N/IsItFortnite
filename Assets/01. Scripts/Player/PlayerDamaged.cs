@@ -113,13 +113,10 @@ public class PlayerDamaged : Character, IDamageable
     /// </summary>
     private IEnumerator Twinkle()
     {
-        lightObj.SetActive(false);
-        yield return new WaitForSeconds(twinkleDuration);
-        lightObj.SetActive(true);
-        yield return new WaitForSeconds(twinkleDuration);
-        lightObj.SetActive(false);
-        yield return new WaitForSeconds(twinkleDuration);
-        lightObj.SetActive(true);
+        sp.color = Color.red;
+        yield return new WaitForSeconds(knockBackDuration);
+        sp.color = Color.white;
+        yield return new WaitForSeconds(knockBackDuration);
 
         if (currentHP <= 0)
         {

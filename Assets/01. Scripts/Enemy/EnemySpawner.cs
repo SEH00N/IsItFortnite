@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public static EnemySpawner Instance = null;
 
+    [SerializeField] PoolableMono test;
     [SerializeField] List<PoolableMono> phase1;
     [SerializeField] List<PoolableMono> phase2;
     [SerializeField] List<PoolableMono> phase3;
@@ -19,14 +20,23 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        if(Instance == null)
+        if (Instance == null)
             Instance = this;
     }
 
     private void Start()
     {
         //StartCoroutine(PhaseUpdate());
-        StartCoroutine(SpawnPhase(phase3));
+    }
+
+    private void TestSpawn(PoolableMono test)
+    {
+        //랜덤 위치 설정
+        float angle = Random.Range(0, 360f) * Mathf.Rad2Deg;
+        randPos = GameManager.Instance.player.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
+
+        //에너미 생성
+        PoolableMono temp = PoolManager.Instance.Dequeue(test);
     }
 
     private void Update()
@@ -35,8 +45,11 @@ public class EnemySpawner : MonoBehaviour
         float balancing = GameManager.Instance.balancing;
 
         //spawnDelay 시간 비례 감소
-        if(spawnDelay >= limitSpawnDealay)
+        if (spawnDelay >= limitSpawnDealay)
             spawnDelay -= (GameManager.Instance.currentTime / (balancing * balancing * balancing));
+
+        if (Input.GetKeyDown(KeyCode.C))
+            TestSpawn(test);
     }
 
     private IEnumerator PhaseUpdate()
@@ -57,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(limitSpawnDealay);
 
-        while(true)
+        while (true)
         {
             //랜덤 에너미 설정
             int randVal = Random.Range(0, list.Count);
