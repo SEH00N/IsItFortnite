@@ -14,7 +14,7 @@ public class Enemy : PoolableMono
     [SerializeField] protected float currentHP = 0;
     [SerializeField] protected float knockBackDuration = 0.5f;
     [SerializeField] protected float knockBackPwr = 5f;
-    private SpriteRenderer sp = null;
+    protected SpriteRenderer sp = null;
     protected Rigidbody2D rb2d = null;
     protected Collider2D col2d = null;
     protected StateEnum stateEnum = null;

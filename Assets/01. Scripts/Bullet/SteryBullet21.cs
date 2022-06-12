@@ -7,6 +7,12 @@ public class SteryBullet21 : Bullet
     [SerializeField] GameObject boom;
     [SerializeField] float boomDuration = 0.5f;
 
+    public override void Reset()
+    {
+        base.Reset();
+        boom.SetActive(false);
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         IsNear(other);
