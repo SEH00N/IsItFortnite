@@ -14,6 +14,7 @@ public class PlayerDamaged : Character, IDamageable
     [SerializeField] Image hpImage;
     [SerializeField] float maxHP = 10f;
     [SerializeField] int damage = 1;
+    private SpriteRenderer sp = null;
     private float currentHP = 0;
     private float twinkleDuration = 0.3f;
     public float knockBackDuration = 0.5f;
@@ -23,6 +24,7 @@ public class PlayerDamaged : Character, IDamageable
 
     private void OnEnable()
     {
+        sp = GetComponentInChildren<SpriteRenderer>();
         currentHP = maxHP;
     }
 
@@ -53,11 +55,13 @@ public class PlayerDamaged : Character, IDamageable
 
         for(int i = 0; i < count; i ++)
         {
+            sp.color = Color.green;
             OnDamage(1f, () => {
-                StartCoroutine(Slow(5, 0.5f));
+                Slow(5f, 0.5f);
             });
             yield return new WaitForSeconds(1f);
         }
+        sp.color = Color.white;
     }
 
     public IEnumerator Slow(float val, float time)
