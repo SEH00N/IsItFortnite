@@ -21,7 +21,7 @@ public class Boomer : Enemy, IDamageable
 
         StartCoroutine(Twinkle());
         StartCoroutine(KnockBack());
-        if(currentHP <= 0)
+        if (currentHP <= 0)
             StartCoroutine(Bomb());
     }
 

@@ -103,6 +103,8 @@ public class Enemy : PoolableMono
 
         yield return new WaitForSeconds(knockBackDuration);
 
+        rb2d.velocity = Vector2.zero;
+
         //State Flag에서 Damaged 제거
         stateEnum.state &= ~State.Damaged;
     }
