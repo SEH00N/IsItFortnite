@@ -45,9 +45,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2.2
 --- !u!1 &2224690304612585460
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +119,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55eda834510a70743b918ea66786a598, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -169,10 +169,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2224690305997611733}
-  - component: {fileID: 2224690305997611732}
   - component: {fileID: 2224690305997611754}
   - component: {fileID: -4243034940544522673}
   - component: {fileID: 2224690305997611755}
+  - component: {fileID: 104417564756308560}
   m_Layer: 7
   m_Name: Letis 1
   m_TagString: Enemy
@@ -196,22 +196,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &2224690305997611732
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2224690305997611734}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &2224690305997611754
 Rigidbody2D:
   serializedVersion: 4
@@ -274,3 +258,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+--- !u!60 &104417564756308560
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2224690305997611734}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.8926734, y: 0.9204118}
+      - {x: 0.20642655, y: 1.1604717}
+      - {x: -0.55816203, y: 0.9362098}
+      - {x: -1.2221658, y: 1.3296559}
+      - {x: -0.9828669, y: 0.5688015}
+      - {x: -1.1983579, y: -0.024789678}
+      - {x: -0.9917832, y: -0.7234638}
+      - {x: -1.2685515, y: -1.2914381}
+      - {x: -0.5877852, y: -1.000387}
+      - {x: 0.22017536, y: -1.161418}
+      - {x: 0.7693887, y: -1.0029867}
+      - {x: 1.4648968, y: -1.3193364}
+      - {x: 1.162595, y: -0.6444565}
+      - {x: 1.4328231, y: -0.05483678}
+      - {x: 1.2185897, y: 0.55218846}
+      - {x: 1.5411131, y: 1.3137085}
