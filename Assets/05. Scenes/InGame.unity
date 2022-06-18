@@ -458,7 +458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &71585889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,8 +494,8 @@ MonoBehaviour:
   - {fileID: 7254507913799010002, guid: 2a741283852787646be4f1d879f4912a, type: 3}
   - {fileID: -663416917159156237, guid: 3f31e24489a23c3458d0487354805715, type: 3}
   distance: 40
-  spawnDelay: 1
-  limitSpawnDealay: 1
+  spawnDelay: 6
+  limitSpawnDealay: 3
   randPos: {x: 0, y: 0, z: 0}
 --- !u!4 &71585890
 Transform:
@@ -1517,7 +1517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAt: {fileID: 786440551}
-  firePos: {fileID: 0}
+  firePos: {fileID: 414945532}
   key: 114
   coolTime: 20
   coolDown: 17
@@ -3385,7 +3385,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  laser: {fileID: 8730861315387101728, guid: 8556da16ee012ec4785e58d6c70e4448, type: 3}
   fireDelay: 0.3
   bulletIndex: 0
 --- !u!1 &1847928482

@@ -9,7 +9,6 @@ public class PlayerControl : Character
     [SerializeField] Transform maxTrm;
     [SerializeField] Transform lookAt;
     [SerializeField] LayerMask enemyLayer;
-    [SerializeField] PoolableMono laser;
     [SerializeField] float fireDelay;
     private Camera cam = null;
     private float currentTime = 0;
