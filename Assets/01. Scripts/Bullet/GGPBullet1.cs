@@ -17,18 +17,17 @@ public class GGPBullet1 : Bullet
             IDamageable id = other.gameObject.GetComponent<IDamageable>();
             PlayerDamaged pd = other.gameObject.GetComponent<PlayerDamaged>();
             float knockBackPwr = pd.knockBackPwr;
-            pd.knockBackPwr = knockBackPwr * 5;
+            pd.knockBackPwr = knockBackPwr * 10;
 
-            pd.isSlow = true;
+            //pd.isSlow = true;
             
             if (id != null)
                 id.OnDamage(damage, () => {
                     TimeController.Instance.ModifyTimeScale(0.1f, 0.1f, () => {
                         TimeController.Instance.ModifyTimeScale(1f, 0.05f);
                     });
-
-                    other.gameObject.GetComponent<PlayerDamaged>().knockBackPwr = knockBackPwr;
                 });
+            other.gameObject.GetComponent<PlayerDamaged>().knockBackPwr = knockBackPwr;
             PoolManager.Instance.Enqueue(this);
         }
     }

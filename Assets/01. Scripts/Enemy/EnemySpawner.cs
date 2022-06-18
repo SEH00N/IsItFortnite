@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(PhaseUpdate());
+        //StartCoroutine(PhaseUpdate());
     }
 
     private void TestSpawn(PoolableMono test)
@@ -61,6 +61,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSecondsRealtime(300f);
         StopMethod();
         StartCoroutine(SpawnPhase(phase3));
+        yield return null;
     }
 
     /// <summary>

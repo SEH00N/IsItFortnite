@@ -228,7 +228,7 @@ MonoBehaviour:
   knockBackDuration: 0.1
   knockBackPwr: 2
   bullet: {fileID: 7441891674874137949, guid: a0dc97516c7713a449c56d5bbf4c79e6, type: 3}
-  fireDelay: 5
+  fireDelay: 3
 --- !u!114 &6855641755984347927
 MonoBehaviour:
   m_ObjectHideFlags: 0

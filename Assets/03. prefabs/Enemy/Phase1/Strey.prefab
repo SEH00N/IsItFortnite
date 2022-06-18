@@ -193,12 +193,12 @@ MonoBehaviour:
   speed: 4
   maxHP: 6
   patrolDelay: 2
-  patrolDistance: 5
+  patrolDistance: 8
   currentHP: 0
   knockBackDuration: 0.1
   knockBackPwr: 2
   bullet: {fileID: -3549077357685682306, guid: 5b86887c58815394e8c5e7bb1a6e7f96, type: 3}
-  fireDelay: 3
+  fireDelay: 1
 --- !u!114 &2865006798795186961
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class SteryBullet1 : Bullet
         {
             for(int i = 0; i < count; i ++)
             {
-                SteryBullet21 temp = PoolManager.Instance.Dequeue(subBullet) as SteryBullet21;
+                PoolableMono temp = PoolManager.Instance.Dequeue(subBullet) as PoolableMono;
                 temp.transform.eulerAngles = new Vector3(0, 0, 360 / count * i);
                 temp.transform.position = transform.position;
             }

@@ -16,7 +16,7 @@ public class GGPBullet : Bullet
         {
             IDamageable id = other.gameObject.GetComponent<IDamageable>();
             float knockBackPwr = other.gameObject.GetComponent<PlayerDamaged>().knockBackPwr;
-            other.gameObject.GetComponent<PlayerDamaged>().knockBackPwr = knockBackPwr * 5;
+            other.gameObject.GetComponent<PlayerDamaged>().knockBackPwr = knockBackPwr * 10;
             
             if (id != null)
                 id.OnDamage(damage, () => {
@@ -24,7 +24,7 @@ public class GGPBullet : Bullet
                         TimeController.Instance.ModifyTimeScale(1f, 0.05f);
                     });
 
-                    other.gameObject.GetComponent<PlayerDamaged>().knockBackPwr = knockBackPwr;
+                    other.gameObject.GetComponent<PlayerDamaged>().knockBackPwr = knockBackPwr / 10;
                 });
             PoolManager.Instance.Enqueue(this);
         }
