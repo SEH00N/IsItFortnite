@@ -22,7 +22,7 @@ public class Tweeeeen : MonoBehaviour
         while(true)
         {
             Sequence seq = DOTween.Sequence();
-            transform.DOLocalRotate(new Vector3(0f, 0f, 360f), duration, RotateMode.FastBeyond360).SetEase(Ease.Linear);
+            transform.DOLocalRotate(new Vector3(0f, 0f, -360f), duration, RotateMode.FastBeyond360).SetEase(Ease.Linear);
             yield return new WaitForSeconds(duration);
         }
     }

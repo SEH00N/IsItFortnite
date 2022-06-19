@@ -13,8 +13,8 @@ public class JaksalPyok : SkillBase
     {
         if (coolDown > coolTime && Input.GetKeyDown(key))
         {
-            StartCoroutine(Pyok());
             coolDown = 0;
+            StartCoroutine(Pyok());
         }
     }
 

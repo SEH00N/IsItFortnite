@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
             spawnDelay -= (GameManager.Instance.currentTime / (balancing * balancing * balancing));
 
         if (Input.GetKeyDown(KeyCode.C))
-            TestSpawn(test);
+                TestSpawn(test);
     }
 
     private IEnumerator PhaseUpdate()
