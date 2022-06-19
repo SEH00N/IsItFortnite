@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &26590470
 RectTransform:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3b4eac34ae46844b043912f46602fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: BlackHole
+  skillName: 
 --- !u!1 &27058310
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f72e8a44fb6a14ba5215432ece9bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 2958409097010824363, guid: dc5daeba8ae8e124bad76575a8511acc, type: 3}
+  test: {fileID: 8046848410262930513, guid: e5bb7dbebef3f6448adecc52c1daecfa, type: 3}
   phase1:
   - {fileID: 6005692768191415985, guid: f353f156433f22849945333a7ac138d0, type: 3}
   - {fileID: 1433401756161832460, guid: 8ed6a6f23699ed04896ea1c672698431, type: 3}
@@ -1575,7 +1575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAt: {fileID: 786440551}
   firePos: {fileID: 414945532}
-  key: 114
+  key: 119
   coolTime: 20
   coolDown: 18
   blackHole: {fileID: 2505409806104075858, guid: 204f6fa3c6283664c875ac7e81889739, type: 3}
@@ -2140,7 +2140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &831837698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2205,12 +2205,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831837697}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e3b4eac34ae46844b043912f46602fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: CannonBall
+  skillName: BlackHole
 --- !u!1 &933528429
 GameObject:
   m_ObjectHideFlags: 0

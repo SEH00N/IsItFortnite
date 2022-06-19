@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5817383667280490938}
-  - component: {fileID: 5817383667280490941}
   - component: {fileID: 5641987344398419054}
+  - component: {fileID: 1409499796207554551}
   m_Layer: 0
   m_Name: StreyBullet 1-1
   m_TagString: Untagged
@@ -27,28 +27,12 @@ Transform:
   m_GameObject: {fileID: 5817383667280490939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.88, y: 0.54, z: -196.93568}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 5817383668122671113}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5817383667280490941
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5817383667280490939}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &5641987344398419054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +50,39 @@ MonoBehaviour:
   speed: 12
   damage: 3
   lifeTime: 1
+--- !u!60 &1409499796207554551
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5817383667280490939}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.23446846, y: 0.6214123}
+      - {x: -0.25022513, y: 0.62552166}
+      - {x: -0.6236105, y: 0.24817514}
+      - {x: -0.62352276, y: -0.12764466}
+      - {x: -0.25675148, y: -0.4991138}
+      - {x: 0.24190617, y: -0.50556135}
+      - {x: 0.6300446, y: -0.13286424}
+      - {x: 0.6270666, y: 0.25267094}
 --- !u!1 &5817383668122671110
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 768420a7574f7a44e8eefdd81896e93c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
