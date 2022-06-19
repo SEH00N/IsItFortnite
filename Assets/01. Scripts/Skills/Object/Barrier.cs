@@ -9,7 +9,7 @@ public class Barrier : PoolableMono
 
     private void Start()
     {
-        playerTrm = GameManager.Instance.player;
+        playerTrm = GameManager.Instance.player.transform;
     }
 
     private void Update()

@@ -148,7 +148,7 @@ MonoBehaviour:
   tagName:
   - Player
   speed: 5
-  damage: 5
+  damage: 15
   lifeTime: 10
   state: 0
   followingDuration: 10

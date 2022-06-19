@@ -21,6 +21,7 @@ public class PoolManager
     public void CreatePool(PoolableMono prefab, int cnt)
     {
         if(pools.ContainsKey(prefab.name)) return;
+        
         Pool<PoolableMono> pool = new Pool<PoolableMono>(prefab, parentTrm, cnt);
         pools.Add(prefab.gameObject.name, pool);
     }

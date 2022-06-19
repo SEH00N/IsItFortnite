@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
 
-    public Transform player = null;
+    public GameObject player = null;
     public List<PoolableMono> poolList;
     public TextMeshProUGUI scoreTxt;
     public GameObject pooler;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         foreach (PoolableMono temp in poolList)
             PoolManager.Instance.CreatePool(temp, 5);
 
-            player = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
     }
 
     private void Start()

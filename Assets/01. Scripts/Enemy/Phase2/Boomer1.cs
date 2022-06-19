@@ -19,7 +19,7 @@ public class Boomer1 : Enemy, IDamageable
         //스코어 증가
         GameManager.Instance.SetScore((maxHP - currentHP));
 
-        if(currentHP <= 0)
+        if (currentHP <= 0)
             StartCoroutine(Bomb());
         StartCoroutine(Twinkle());
         StartCoroutine(KnockBack());
@@ -65,6 +65,9 @@ public class Boomer1 : Enemy, IDamageable
         //enum(State) 업데이트
         stateEnum.state &= ~State.Damaged;
 
+
+        DropItem(powerUp);
+        DropItem(healPack);
         gameObject.SetActive(false);
 
         PoolManager.Instance.Enqueue(this);

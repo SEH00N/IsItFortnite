@@ -62,6 +62,8 @@ public class Boomer : Enemy, IDamageable
         //enum(State) 업데이트
         stateEnum.state &= ~State.Damaged;
 
+        DropItem(powerUp);
+        DropItem(healPack);
         gameObject.SetActive(false);
 
         PoolManager.Instance.Enqueue(this);

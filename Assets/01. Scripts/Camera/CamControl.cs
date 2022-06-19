@@ -16,7 +16,7 @@ public class CamControl : MonoBehaviour
 
         //orthographic 사이즈 초기화
         vCam.m_Lens.OrthographicSize = noramlSize;
-        vCam.m_Follow = GameManager.Instance.player;
+        vCam.m_Follow = GameManager.Instance.player.transform;
     }
 
     private void Update()

@@ -164,7 +164,7 @@ MonoBehaviour:
   tagName:
   - Player
   speed: 12
-  damage: 5
+  damage: 6
   lifeTime: 1
   boom: {fileID: 3432060918245964483}
   boomDuration: 0.1

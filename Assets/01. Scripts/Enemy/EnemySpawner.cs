@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
     {
         //랜덤 위치 설정
         float angle = Random.Range(0, 360f) * Mathf.Rad2Deg;
-        randPos = GameManager.Instance.player.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
+        randPos = GameManager.Instance.player.transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
 
         //에너미 생성
         PoolableMono temp = PoolManager.Instance.Dequeue(test);
@@ -78,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
             //랜덤 위치 설정
             float angle = Random.Range(0, 360f) * Mathf.Rad2Deg;
-            randPos = GameManager.Instance.player.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
+            randPos = GameManager.Instance.player.transform.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
 
             //에너미 생성
             PoolableMono temp = PoolManager.Instance.Dequeue(list[randVal]);

@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5b97bee31670f4682aa742039168f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healPack: {fileID: 5603144940931798006, guid: 637c994eec9aee942b31b8118da8dc86, type: 3}
   powerUp: {fileID: 8772525204501596283, guid: 55491f257a9999944afe594e6ce90e4c, type: 3}
   lightObj: {fileID: 2958409097467904124}
   playerLayer:

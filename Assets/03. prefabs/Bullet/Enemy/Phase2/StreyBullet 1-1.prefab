@@ -64,7 +64,7 @@ MonoBehaviour:
   tagName:
   - Player
   speed: 12
-  damage: 5
+  damage: 3
   lifeTime: 1
 --- !u!1 &5817383668122671110
 GameObject:

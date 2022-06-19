@@ -12,10 +12,10 @@ public class PlayerDamaged : Character, IDamageable
     [SerializeField] Transform lookAt;
     [SerializeField] Image fadeImage;
     [SerializeField] Image hpImage;
-    [SerializeField] float maxHP = 10f;
     [SerializeField] int damage = 1;
     private SpriteRenderer sp = null;
-    private float currentHP = 0;
+    public float maxHP = 10f;
+    public float currentHP = 0;
     private float twinkleDuration = 0.3f;
     public float knockBackDuration = 0.5f;
     public float knockBackPwr = 5f;

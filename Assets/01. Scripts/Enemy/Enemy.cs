@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : PoolableMono
 {
+    [SerializeField] protected PoolableMono healPack;
     [SerializeField] protected PoolableMono powerUp;
     [SerializeField] protected GameObject lightObj;
     [SerializeField] protected LayerMask playerLayer;
@@ -36,7 +37,7 @@ public class Enemy : PoolableMono
     public override void Reset()
     {
         //player Transform 캐싱
-        player = GameManager.Instance.player;
+        player = GameManager.Instance.player.transform;
 
         //위치 초기화
         transform.position = EnemySpawner.Instance.randPos;
@@ -58,7 +59,7 @@ public class Enemy : PoolableMono
         while (true)
         {
             //State가 Damaged면 break
-            if(!stateEnum.state.HasFlag(State.Damaged))
+            if (!stateEnum.state.HasFlag(State.Damaged))
             {
                 //enum(State) 업데이트
                 stateEnum.state |= State.Move;
@@ -131,16 +132,18 @@ public class Enemy : PoolableMono
         if (currentHP <= 0)
         {
             StopAllCoroutines();
+            DropItem(powerUp);
+            DropItem(healPack);
             PoolManager.Instance.Enqueue(this);
         }
     }
 
-    private void SpawnPowerUp()
+    protected void DropItem(PoolableMono item)
     {
         float randVal = Random.Range(0, 100);
-        if(randVal > 95)
+        if (randVal >= 98)
         {
-            PoolableMono temp = PoolManager.Instance.Dequeue(powerUp);
+            PoolableMono temp = PoolManager.Instance.Dequeue(item);
             temp.transform.position = transform.position;
         }
     }

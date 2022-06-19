@@ -146,7 +146,7 @@ MonoBehaviour:
   tagName:
   - Player
   speed: 9
-  damage: 5
+  damage: 6
   lifeTime: 2
   subBullet: {fileID: 5641987344398419054, guid: a796ddf0e82853f4f8018faa2f5db271, type: 3}
   count: 8

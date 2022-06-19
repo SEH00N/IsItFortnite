@@ -47,7 +47,7 @@ public class FinterBullet : Bullet
     /// </summary>
     private void ChangeRotate()
     {
-        Vector3 playerPos = GameManager.Instance.player.position;
+        Vector3 playerPos = GameManager.Instance.player.transform.position;
         Vector3 rotate = transform.eulerAngles;
         Vector2 rotateDir = (transform.position - playerPos).normalized;
         float angle = Mathf.Atan2(rotateDir.y, rotateDir.x) * Mathf.Rad2Deg;

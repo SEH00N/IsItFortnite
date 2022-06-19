@@ -9,7 +9,7 @@ public class SpawnBarrier : SkillBase
         if(coolDown > coolTime && Input.GetKeyDown(key))
         {
             Barrier temp = PoolManager.Instance.Dequeue(barrier) as Barrier;
-            temp.transform.position = GameManager.Instance.player.position;
+            temp.transform.position = GameManager.Instance.player.transform.position;
             coolDown = 0;
         }
     }

@@ -48,7 +48,7 @@ MonoBehaviour:
   tagName:
   - Player
   speed: 6
-  damage: 1
+  damage: 3
   lifeTime: 10
 --- !u!61 &9017614147643066229
 BoxCollider2D:
