@@ -113,15 +113,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   lookAt: {fileID: 7496780192686124210}
-  speed: 5
+  speed: 8
   maxHP: 10
   patrolDelay: 2
-  patrolDistance: 5
-  currentHP: 0
+  patrolDistance: 10
   knockBackDuration: 0.1
   knockBackPwr: 2
+  currentHP: 0
+  stateEnum: {fileID: 0}
   bullet: {fileID: 4493540201221214205, guid: 2a3abdcff06ed854582e7ddd31888ad9, type: 3}
-  fireDelay: 1
+  fireDelay: 2
 --- !u!114 &2865006798795186961
 MonoBehaviour:
   m_ObjectHideFlags: 0

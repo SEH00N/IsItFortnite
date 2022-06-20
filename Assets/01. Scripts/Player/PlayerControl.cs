@@ -24,11 +24,12 @@ public class PlayerControl : Character
     private void Update()
     {
         Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        bulletIndex = Mathf.Clamp(bulletIndex, 0, bulletList.Count - 1);
+        Blocking();
+        if(stateEnum.state.HasFlag(State.Ulti)) return;
         PlayerRotation(mousePos);
         Controlling(mousePos);
-        Blocking();
 
-        bulletIndex = Mathf.Clamp(bulletIndex, 0, bulletList.Count - 1);
     }
 
     /// <summary>

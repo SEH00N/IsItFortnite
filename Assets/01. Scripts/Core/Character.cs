@@ -4,7 +4,7 @@ public class Character : MonoBehaviour
 {
     public float speed = 5f;                                                                                                                                        
     public Rigidbody2D rb2d = null;
-    protected StateEnum stateEnum = null;
+    public StateEnum stateEnum = null;
     protected Collider2D col2d = null;
 
     protected virtual void Awake()

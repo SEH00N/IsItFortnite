@@ -12,13 +12,13 @@ public class Enemy : PoolableMono
     [SerializeField] protected float maxHP = 5f;
     [SerializeField] protected float patrolDelay = 5f;
     [SerializeField] protected float patrolDistance = 5f;
-    [SerializeField] protected float currentHP = 0;
     [SerializeField] protected float knockBackDuration = 0.5f;
     [SerializeField] protected float knockBackPwr = 5f;
     protected SpriteRenderer sp = null;
     protected Rigidbody2D rb2d = null;
     protected Collider2D col2d = null;
-    protected StateEnum stateEnum = null;
+    public float currentHP = 0;
+    public StateEnum stateEnum = null;
     protected Transform player;
 
     protected virtual void Awake()
@@ -31,6 +31,12 @@ public class Enemy : PoolableMono
 
     protected virtual void Update()
     {
+        if(player.GetComponent<PlayerControl>().stateEnum.state.HasFlag(State.Ulti))
+        {
+            stateEnum.state |= State.Stop;
+            rb2d.velocity = Vector2.zero;
+        }
+
         Rotation();
     }
 

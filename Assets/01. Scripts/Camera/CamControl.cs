@@ -19,6 +19,11 @@ public class CamControl : MonoBehaviour
         vCam.m_Follow = GameManager.Instance.player.transform;
     }
 
+    public void SetFollow(Transform trm)
+    {
+        vCam.m_Follow = trm;
+    }
+
     private void Update()
     {
         Zoom();

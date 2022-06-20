@@ -45,7 +45,7 @@ public class Finter2 : Enemy, IDamageable
         while (true)
         {
             //State가 Damaged면 break
-            if (stateEnum.state.HasFlag(State.Damaged)) break;
+            if (stateEnum.state.HasFlag(State.Damaged)|| stateEnum.state.HasFlag(State.Stop)) break;
 
             //순찰 범위 안에 플레이어가 있으면 발사
             if(IsNear())

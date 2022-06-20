@@ -40,7 +40,7 @@ public class PlayerDamaged : Character, IDamageable
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && !stateEnum.state.HasFlag(State.Ulti))
         {
             IDamageable id = other.gameObject.GetComponent<IDamageable>();
             OnDamage(damage);
@@ -77,7 +77,7 @@ public class PlayerDamaged : Character, IDamageable
     public void OnDamage(float dmg, Action freeze = null)
     {
         //State가 Damaged면 return
-        if (stateEnum.state.HasFlag(State.Damaged)) return;
+        if (stateEnum.state.HasFlag(State.Damaged) || stateEnum.state.HasFlag(State.Ulti)) return;
 
         //enum(State) 업데이트
         stateEnum.state |= State.Damaged;
@@ -88,7 +88,7 @@ public class PlayerDamaged : Character, IDamageable
         StartCoroutine(KnockBack());
 
         currentHP -= dmg;
-
+        Mathf.Min(currentHP, 0);
     }
 
     /// <summary>

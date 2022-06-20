@@ -8,6 +8,8 @@ public enum State
     Move = 1 << 0,
     Fire = 1 << 1,
     Damaged = 1 << 2,
+    Ulti = 1 << 3,
+    Stop = 1 << 4,
 }
 
 public class StateEnum : MonoBehaviour

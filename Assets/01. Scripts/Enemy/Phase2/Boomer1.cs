@@ -19,21 +19,18 @@ public class Boomer1 : Enemy, IDamageable
         //스코어 증가
         GameManager.Instance.SetScore((maxHP - currentHP));
 
-        if (currentHP <= 0)
-            StartCoroutine(Bomb());
         StartCoroutine(Twinkle());
         StartCoroutine(KnockBack());
+        if (currentHP <= 0)
+            StartCoroutine(Bomb());
     }
 
     protected override IEnumerator Twinkle()
     {
-        lightObj.SetActive(false);
+        sp.color = Color.red;
         yield return new WaitForSeconds(knockBackDuration);
-        lightObj.SetActive(true);
+        sp.color = Color.white;
         yield return new WaitForSeconds(knockBackDuration);
-        lightObj.SetActive(false);
-        yield return new WaitForSeconds(knockBackDuration);
-        lightObj.SetActive(true);
     }
 
     protected override void Update()
