@@ -21,8 +21,8 @@ public class ScoreText : MonoBehaviour
         if (bestScoreText != null)
             bestScoreText.text = $"BestScore\n\n{sm.bestScore}";
         if (currentTimeText != null)
-            currentTimeText.text = $"PlayTime\n\n{sm.currentTime}";
+            currentTimeText.text = $"PlayTime\n\n{Mathf.Floor(sm.currentTime / 60)}:{Mathf.Floor(sm.currentTime % 60)}";
         if (bestTimeText != null)
-            bestTimeText.text = $"BestPlayTime\n\n{sm.bestTime}";
+            bestTimeText.text = $"BestPlayTime\n\n{Mathf.Floor(sm.bestTime / 60)}:{Mathf.Floor(sm.bestTime % 60)}";
     }
 }

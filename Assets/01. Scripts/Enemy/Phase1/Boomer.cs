@@ -25,6 +25,12 @@ public class Boomer : Enemy, IDamageable
             StartCoroutine(Bomb());
     }
 
+    public override void Reset()
+    {
+        base.Reset();
+        lightObj.SetActive(true);
+    }
+
     protected override IEnumerator Twinkle()
     {
         sp.color = Color.red;
@@ -64,7 +70,6 @@ public class Boomer : Enemy, IDamageable
 
         DropItem(powerUp);
         DropItem(healPack);
-        gameObject.SetActive(false);
 
         PoolManager.Instance.Enqueue(this);
         yield return null;

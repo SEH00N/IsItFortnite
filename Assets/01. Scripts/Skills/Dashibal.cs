@@ -32,7 +32,7 @@ public class Dashibal : SkillBase
         Collider2D[] arr = Physics2D.OverlapBoxAll(dashRange.bounds.center, dashRange.bounds.size, 0, enemyLayer);
         playerCol.isTrigger = true;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(delay * 5);
         
         for (int i = 0; i < arr.Length; i++)
         {
@@ -45,7 +45,7 @@ public class Dashibal : SkillBase
                 });
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(delay * 5);
         panel.SetActive(false);
         pc.stateEnum.state &= ~State.Ulti;
         pc.rb2d.velocity = Vector2.zero;

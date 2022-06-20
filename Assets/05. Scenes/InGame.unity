@@ -496,7 +496,7 @@ MonoBehaviour:
   player: {fileID: 0}
   poolList:
   - {fileID: 8730861315387101728, guid: 8556da16ee012ec4785e58d6c70e4448, type: 3}
-  - {fileID: 8730861315387101728, guid: 358f0d0c16ac08a499e35ba736e83f73, type: 3}
+  - {fileID: 3970516567609092438, guid: 358f0d0c16ac08a499e35ba736e83f73, type: 3}
   - {fileID: 7496780192656971325, guid: ffc5508dfb9e5244b96b3f03ebc176d5, type: 3}
   - {fileID: 2958409097010824363, guid: dc5daeba8ae8e124bad76575a8511acc, type: 3}
   - {fileID: 6855641755984347926, guid: 5eaed1b598e71bc439d8829b94be6843, type: 3}
@@ -2669,7 +2669,7 @@ MonoBehaviour:
   key: 101
   coolTime: 10
   coolDown: 8
-  bullet: {fileID: 8730861315387101728, guid: 358f0d0c16ac08a499e35ba736e83f73, type: 3}
+  bullet: {fileID: 3970516567609092438, guid: 358f0d0c16ac08a499e35ba736e83f73, type: 3}
 --- !u!1 &1297515439
 GameObject:
   m_ObjectHideFlags: 0

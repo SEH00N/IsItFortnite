@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        //StartCoroutine(PhaseUpdate());
+        StartCoroutine(PhaseUpdate());
     }
 
     private void TestSpawn(PoolableMono test)
