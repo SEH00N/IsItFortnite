@@ -33,6 +33,12 @@ public class Boomer1 : Enemy, IDamageable
         yield return new WaitForSeconds(knockBackDuration);
     }
 
+    public override void Reset()
+    {
+        base.Reset();
+        lightObj.SetActive(true);
+    }
+
     protected override void Update()
     {
         base.Update();

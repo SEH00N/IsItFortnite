@@ -43,8 +43,11 @@ public class Dashibal : SkillBase
                 arr[i].GetComponent<IDamageable>().OnDamage(10, () => {
                     arr[i].GetComponent<Enemy>().currentHP = 0;
                 });
+            pc.rb2d.velocity = Vector2.zero;
         }
-
+        
+        GameManager.Instance.player.transform.position = Camera.main.transform.position;
+        
         yield return new WaitForSeconds(delay * 5);
         panel.SetActive(false);
         pc.stateEnum.state &= ~State.Ulti;

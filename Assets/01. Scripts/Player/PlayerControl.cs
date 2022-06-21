@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerControl : Character
 {
-    [SerializeField] List<PoolableMono> bulletList;
+    public List<PoolableMono> bulletList;
     [SerializeField] List<Transform> firePos;
     [SerializeField] Transform minTrm;
     [SerializeField] Transform maxTrm;

@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,14 @@ using UnityEngine;
 public class JaksalPyok : SkillBase
 {
     [SerializeField] List<Transform> firePoses;
-    [SerializeField] Laser bullet;
     [SerializeField] int count = 5;
     [SerializeField] float fireDelay = 0.5f;
+    private PlayerControl pc = null;
+
+    private void Start()
+    {
+        pc = GetComponentInParent<PlayerControl>();
+    }
 
     public void PyokPyok()
     {
@@ -23,7 +29,7 @@ public class JaksalPyok : SkillBase
         int c = 0;
         for(int i = 0; i < count; i ++)
         {
-            Laser cb = PoolManager.Instance.Dequeue(bullet) as Laser;
+            PoolableMono cb = PoolManager.Instance.Dequeue(pc.bulletList[pc.bulletIndex]) as PoolableMono;
             cb.transform.position = firePoses[c].position;
             cb.transform.rotation = lookAt.rotation;
             yield return new WaitForSeconds(fireDelay);

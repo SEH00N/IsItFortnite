@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5817383667280490938}
   - component: {fileID: 5641987344398419054}
   - component: {fileID: 1409499796207554551}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StreyBullet 1-1
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5817383668122671113}
   - component: {fileID: 5817383668122671112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
