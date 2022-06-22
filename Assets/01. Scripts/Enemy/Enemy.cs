@@ -36,6 +36,8 @@ public class Enemy : PoolableMono
             stateEnum.state |= State.Stop;
             rb2d.velocity = Vector2.zero;
         }
+        if(!player.GetComponent<PlayerControl>().stateEnum.state.HasFlag(State.Ulti))
+            stateEnum.state &= ~State.Stop;
 
         Rotation();
     }

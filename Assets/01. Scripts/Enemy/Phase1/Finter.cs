@@ -25,6 +25,7 @@ public class Finter : Enemy, IDamageable
         GameManager.Instance.SetScore((maxHP - currentHP));
 
         StartCoroutine(KnockBack());
+        stateEnum.state = State.Idle;
     }
 
     public override void Reset()
@@ -43,11 +44,8 @@ public class Finter : Enemy, IDamageable
 
         while (true)
         {
-            //State가 Damaged면 break
-            if (stateEnum.state.HasFlag(State.Damaged) || stateEnum.state.HasFlag(State.Stop)) break;
-
             //순찰 범위 안에 플레이어가 있으면 발사
-            if(IsNear())
+            if(IsNear() && !(stateEnum.state.HasFlag(State.Damaged) || stateEnum.state.HasFlag(State.Stop)))
             {
                 //enum(State) 업데이트
                 stateEnum.state |= State.Fire;
@@ -55,12 +53,11 @@ public class Finter : Enemy, IDamageable
                 FinterBullet temp =  PoolManager.Instance.Dequeue(bullet) as FinterBullet;
                 temp.transform.position = lookAt.position;
                 temp.transform.rotation = transform.rotation;
+                yield return new WaitForSeconds(fireDelay);
             }
-
-            yield return new WaitForSeconds(fireDelay);
-            
             //enum(State) 업데이트
             stateEnum.state &= ~State.Fire;
+            yield return null;
         }
     }
 }

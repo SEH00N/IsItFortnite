@@ -26,6 +26,7 @@ public class Finter2 : Enemy, IDamageable
         GameManager.Instance.SetScore((maxHP - currentHP));
 
         StartCoroutine(KnockBack());
+        stateEnum.state = State.Idle;
     }
 
     public override void Reset()

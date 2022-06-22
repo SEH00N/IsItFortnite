@@ -278,12 +278,13 @@ MonoBehaviour:
     m_Bits: 512
   lookAt: {fileID: 2224690305405053880}
   speed: 4
-  maxHP: 3
+  maxHP: 5
   patrolDelay: 2
   patrolDistance: 2
-  currentHP: 0
   knockBackDuration: 0.1
   knockBackPwr: 2
+  currentHP: 0
+  stateEnum: {fileID: 0}
   sleepDistance: 7
   sleepDelay: 10
   sleepDuration: 2

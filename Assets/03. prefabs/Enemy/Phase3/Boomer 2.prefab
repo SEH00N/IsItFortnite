@@ -223,12 +223,13 @@ MonoBehaviour:
     m_Bits: 512
   lookAt: {fileID: 6005692768099503806}
   speed: 4
-  maxHP: 15
+  maxHP: 21
   patrolDelay: 0
   patrolDistance: 0
+  knockBackDuration: 0.1
+  knockBackPwr: 2
   currentHP: 0
-  knockBackDuration: 0
-  knockBackPwr: 0
+  stateEnum: {fileID: 0}
   bombCollider: {fileID: 6005692768583577408}
   bombDelay: 1
 --- !u!114 &7764149356484837259

@@ -48,20 +48,32 @@ public class EnemySpawner : MonoBehaviour
         if (spawnDelay >= limitSpawnDealay)
             spawnDelay -= (GameManager.Instance.currentTime / (balancing * balancing * balancing));
 
-        if (Input.GetKeyDown(KeyCode.C))
-                TestSpawn(test);
+        // if (Input.GetKeyDown(KeyCode.C))
+        //     TestSpawn(test);
     }
 
     private IEnumerator PhaseUpdate()
     {
-        StartCoroutine(SpawnPhase(phase1));
-        yield return new WaitForSecondsRealtime(300f);
-        StopMethod();
-        StartCoroutine(SpawnPhase(phase2));
-        yield return new WaitForSecondsRealtime(300f);
-        StopMethod();
-        StartCoroutine(SpawnPhase(phase3));
+        SetStart(SpawnPhase(phase1));
+        yield return new WaitForSecondsRealtime(15f);
+        SetStop();
+        SetStart(SpawnPhase(phase2));
+        yield return new WaitForSecondsRealtime(15f);
+        SetStop();
+        SetStart(SpawnPhase(phase3));
         yield return null;
+    }
+
+    private IEnumerator coroutine = null;
+    private void SetStart(IEnumerator routine)
+    {
+        coroutine = routine;
+        StartCoroutine(coroutine);
+    }
+
+    private void SetStop()
+    {
+        StopCoroutine(coroutine);
     }
 
     /// <summary>
@@ -70,7 +82,6 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator SpawnPhase(List<PoolableMono> list)
     {
         yield return new WaitForSeconds(limitSpawnDealay);
-
         while (true)
         {
             //랜덤 에너미 설정
@@ -87,12 +98,8 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// SpawnEnemy 스탑 메소드
-    /// </summary>
     public void StopMethod()
     {
         StopAllCoroutines();
     }
-
 }

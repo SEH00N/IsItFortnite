@@ -109,12 +109,13 @@ MonoBehaviour:
     m_Bits: 512
   lookAt: {fileID: 2958409097778031756}
   speed: 5
-  maxHP: 20
+  maxHP: 21
   patrolDelay: 0
   patrolDistance: 0
-  currentHP: 0
   knockBackDuration: 0.1
   knockBackPwr: 15
+  currentHP: 0
+  stateEnum: {fileID: 0}
   damage: 10
 --- !u!114 &-1487410922303857558
 MonoBehaviour:

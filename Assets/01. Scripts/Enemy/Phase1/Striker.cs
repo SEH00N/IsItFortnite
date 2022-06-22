@@ -25,6 +25,7 @@ public class Striker : Enemy, IDamageable
         GameManager.Instance.SetScore((maxHP - currentHP));
 
         StartCoroutine(KnockBack());
+        stateEnum.state = State.Idle;
     }
 
     protected override void Update()

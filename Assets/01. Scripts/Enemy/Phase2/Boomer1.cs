@@ -23,6 +23,7 @@ public class Boomer1 : Enemy, IDamageable
         StartCoroutine(KnockBack());
         if (currentHP <= 0)
             StartCoroutine(Bomb());
+        stateEnum.state = State.Idle;
     }
 
     protected override IEnumerator Twinkle()

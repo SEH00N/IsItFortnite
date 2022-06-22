@@ -115,12 +115,13 @@ MonoBehaviour:
     m_Bits: 512
   lookAt: {fileID: 1433401758195066954}
   speed: 8
-  maxHP: 14
+  maxHP: 17
   patrolDelay: 2
   patrolDistance: 10
-  currentHP: 0
   knockBackDuration: 0.1
   knockBackPwr: 2
+  currentHP: 0
+  stateEnum: {fileID: 0}
   firePos1: {fileID: 5870011055657748182}
   bullet: {fileID: 8195587209713365663, guid: 7ee833691e6153943a50bde7c7a99399, type: 3}
   fireDelay: 1.5
