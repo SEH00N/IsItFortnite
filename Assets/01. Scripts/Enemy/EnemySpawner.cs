@@ -55,10 +55,10 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator PhaseUpdate()
     {
         SetStart(SpawnPhase(phase1));
-        yield return new WaitForSecondsRealtime(300f);
+        yield return new WaitForSecondsRealtime(200f);
         SetStop();
         SetStart(SpawnPhase(phase2));
-        yield return new WaitForSecondsRealtime(300f);
+        yield return new WaitForSecondsRealtime(200f);
         SetStop();
         SetStart(SpawnPhase(phase3));
         yield return null;

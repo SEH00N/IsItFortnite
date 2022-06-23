@@ -4,12 +4,12 @@ using DG.Tweening;
 
 public class DoFade : MonoBehaviour
 {
-    private Image fadeImage = null;
+    [SerializeField] Image fadeImage = null;
 
     private void Awake()
     {
-        fadeImage = GetComponent<Image>();
+        fadeImage.gameObject.SetActive(true);
 
-        fadeImage.DOFade(0, 3f).OnComplete(() => fadeImage.gameObject.SetActive(false));
+        fadeImage.DOFade(0, 2f).SetEase(Ease.Linear).OnComplete(() => fadeImage.gameObject.SetActive(false));
     }
 }

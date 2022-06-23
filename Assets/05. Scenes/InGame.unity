@@ -361,7 +361,7 @@ MonoBehaviour:
   - {fileID: -663416917159156237, guid: 3f31e24489a23c3458d0487354805715, type: 3}
   distance: 40
   spawnDelay: 6
-  limitSpawnDealay: 3
+  limitSpawnDealay: 2
   randPos: {x: 0, y: 0, z: 0}
 --- !u!4 &71585890
 Transform:
