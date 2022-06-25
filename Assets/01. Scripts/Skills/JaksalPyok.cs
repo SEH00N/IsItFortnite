@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class JaksalPyok : SkillBase
 {
+    [SerializeField] PoolableMono FireAudio;
     [SerializeField] List<Transform> firePoses;
     [SerializeField] int count = 5;
     [SerializeField] float fireDelay = 0.5f;
@@ -29,6 +30,7 @@ public class JaksalPyok : SkillBase
         int c = 0;
         for(int i = 0; i < count; i ++)
         {
+            PoolManager.Instance.Dequeue(FireAudio);
             PoolableMono cb = PoolManager.Instance.Dequeue(pc.bulletList[pc.bulletIndex]) as PoolableMono;
             cb.transform.position = firePoses[c].position;
             cb.transform.rotation = lookAt.rotation;

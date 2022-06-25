@@ -4,7 +4,7 @@ using Cinemachine;
 
 public class CamControl : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera vCam;
+    public CinemachineVirtualCamera vCam;
     [SerializeField] CinemachineVirtualCamera vCam1;
     [SerializeField] GameObject pausePanel;
     [SerializeField] float noramlSize = 10f;

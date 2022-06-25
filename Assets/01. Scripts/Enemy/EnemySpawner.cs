@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(PhaseUpdate());
+        //StartCoroutine(PhaseUpdate());
     }
 
     private void TestSpawn(PoolableMono test)
@@ -48,8 +48,8 @@ public class EnemySpawner : MonoBehaviour
         if (spawnDelay >= limitSpawnDealay)
             spawnDelay -= (GameManager.Instance.currentTime / (balancing * balancing * balancing));
 
-        // if (Input.GetKeyDown(KeyCode.C))
-        //     TestSpawn(test);
+        if (Input.GetKeyDown(KeyCode.C))
+            TestSpawn(test);
     }
 
     private IEnumerator PhaseUpdate()

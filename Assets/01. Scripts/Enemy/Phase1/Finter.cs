@@ -51,6 +51,7 @@ public class Finter : Enemy, IDamageable
                 stateEnum.state |= State.Fire;
 
                 FinterBullet temp =  PoolManager.Instance.Dequeue(bullet) as FinterBullet;
+                PoolManager.Instance.Dequeue(fireAudio);
                 temp.transform.position = lookAt.position;
                 temp.transform.rotation = transform.rotation;
                 yield return new WaitForSeconds(fireDelay);

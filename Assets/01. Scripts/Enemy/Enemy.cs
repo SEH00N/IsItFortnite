@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : PoolableMono
 {
+    [SerializeField] protected PoolableMono fireAudio;
     [SerializeField] protected PoolableMono healPack;
     [SerializeField] protected PoolableMono powerUp;
     [SerializeField] protected GameObject lightObj;

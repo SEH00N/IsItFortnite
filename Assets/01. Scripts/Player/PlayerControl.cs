@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerControl : Character
 {
     public List<PoolableMono> bulletList;
+    [SerializeField] PoolableMono fireAudio;
     [SerializeField] List<Transform> firePos;
     [SerializeField] Transform minTrm;
     [SerializeField] Transform maxTrm;
@@ -75,6 +76,8 @@ public class PlayerControl : Character
 
             //총알의 각도 초기화(플레이어의 각도)
             bullet.transform.rotation = Quaternion.Euler(rotate);
+
+            PoolManager.Instance.Dequeue(fireAudio);
 
             //딜레이 시간 초기화
             currentTime = 0;
