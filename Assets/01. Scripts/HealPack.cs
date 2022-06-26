@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class HealPack : PoolableMono
 {
+    [SerializeField] PoolableMono audioPrefab;
     [SerializeField] float healAmount = 10f;
 
     public override void Reset()
@@ -18,6 +19,7 @@ public class HealPack : PoolableMono
     {
         if (other.CompareTag("Player"))
         {
+            PoolManager.Instance.Dequeue(audioPrefab);
             PlayerDamaged pd = other.GetComponent<PlayerDamaged>();
             if (pd.currentHP < pd.maxHP - healAmount)
                 pd.currentHP += healAmount;

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PowerUp : PoolableMono
 {
+    [SerializeField] PoolableMono audioPrefab;
+    [SerializeField] Sprite sprite;
+
     public override void Reset()
     {
         
@@ -16,7 +19,10 @@ public class PowerUp : PoolableMono
     {
         if(other.CompareTag("Player"))
         {
+            PoolManager.Instance.Dequeue(audioPrefab);
             other.GetComponent<PlayerControl>().bulletIndex++;
+            if(other.GetComponent<PlayerControl>().bulletIndex == 5)
+                other.GetComponentInChildren<SpriteRenderer>().sprite = sprite;
             PoolManager.Instance.Enqueue(this);
         }
     }

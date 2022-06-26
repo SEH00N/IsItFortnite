@@ -11,6 +11,7 @@ public class PlayerControl : Character
     [SerializeField] Transform lookAt;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] float fireDelay;
+    private CamControl cc = null;
     private Camera cam = null;
     private float currentTime = 0;
     private int c = 0;
@@ -19,6 +20,7 @@ public class PlayerControl : Character
     protected override void Awake()
     {
         base.Awake();
+        cc = GameObject.Find("CM vcam1").GetComponent<CamControl>();
         cam = Camera.main;
     }
 
@@ -30,7 +32,6 @@ public class PlayerControl : Character
         if(stateEnum.state.HasFlag(State.Ulti)) return;
         PlayerRotation(mousePos);
         Controlling(mousePos);
-
     }
 
     /// <summary>
@@ -63,6 +64,7 @@ public class PlayerControl : Character
         //딜레이 부여
         if (currentTime > fireDelay)
         {
+            cc.Shake(10, 0.1f);
             //enum(State) 업데이트
             stateEnum.state |= State.Fire;
 

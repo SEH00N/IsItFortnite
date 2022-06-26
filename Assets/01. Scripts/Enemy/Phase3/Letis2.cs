@@ -10,7 +10,6 @@ public class Letis2 : Enemy, IDamageable
     [SerializeField] float sleepDuration = 2f;
     [SerializeField] float slowedSpeed = 11f;
     private float firstSpeed = 0;
-    private PlayerControl pc = null;
     private float nearTime = 0f;
     private float stunTime = 0f;
 

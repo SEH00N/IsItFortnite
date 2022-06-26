@@ -21,6 +21,7 @@ public class Enemy : PoolableMono
     public float currentHP = 0;
     public StateEnum stateEnum = null;
     protected Transform player;
+    protected PlayerControl pc = null;
 
     protected virtual void Awake()
     {
@@ -30,17 +31,25 @@ public class Enemy : PoolableMono
         stateEnum = GetComponent<StateEnum>();
     }
 
+    private void Start()
+    {
+        pc = player.GetComponent<PlayerControl>();
+    }
+
     protected virtual void Update()
     {
-        if(player.GetComponent<PlayerControl>().stateEnum.state.HasFlag(State.Ulti))
+        Rotation();
+    }
+
+    private void LateUpdate()
+    {
+        if(pc.stateEnum.state.HasFlag(State.Ulti))
         {
             stateEnum.state |= State.Stop;
             rb2d.velocity = Vector2.zero;
         }
-        if(!player.GetComponent<PlayerControl>().stateEnum.state.HasFlag(State.Ulti))
+        if(!pc.stateEnum.state.HasFlag(State.Ulti))
             stateEnum.state &= ~State.Stop;
-
-        Rotation();
     }
 
     public override void Reset()
@@ -143,6 +152,7 @@ public class Enemy : PoolableMono
             StopAllCoroutines();
             DropItem(powerUp);
             DropItem(healPack);
+            EasterEgg(powerUp);
             PoolManager.Instance.Enqueue(this);
         }
     }
@@ -151,6 +161,16 @@ public class Enemy : PoolableMono
     {
         float randVal = Random.Range(0, 100);
         if (randVal >= 98)
+        {
+            PoolableMono temp = PoolManager.Instance.Dequeue(item);
+            temp.transform.position = transform.position;
+        }
+    }
+
+    protected void EasterEgg(PoolableMono item)
+    {
+        float randVal = Random.Range(0, 100);
+        if (pc.bulletIndex == 4 && randVal >= 99.9)
         {
             PoolableMono temp = PoolManager.Instance.Dequeue(item);
             temp.transform.position = transform.position;

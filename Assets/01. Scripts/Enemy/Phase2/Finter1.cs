@@ -53,7 +53,7 @@ public class Finter1 : Enemy, IDamageable
             {
                 //enum(State) 업데이트
                 stateEnum.state |= State.Fire;
-
+                PoolManager.Instance.Dequeue(fireAudio);
                 FinterBullet temp =  PoolManager.Instance.Dequeue(bullet) as FinterBullet;
                 FinterBullet temp1 =  PoolManager.Instance.Dequeue(bullet) as FinterBullet;
                 temp1.transform.position = firePos1.position;

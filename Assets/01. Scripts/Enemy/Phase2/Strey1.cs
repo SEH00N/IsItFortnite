@@ -53,7 +53,7 @@ public class Strey1 : Enemy, IDamageable
             {
                 //enum(State) 업데이트
                 stateEnum.state |= State.Fire;
-
+                PoolManager.Instance.Dequeue(fireAudio);
                 SteryBullet1 temp =  PoolManager.Instance.Dequeue(bullet) as SteryBullet1;
                 temp.transform.position = lookAt.position;
                 temp.transform.rotation = transform.rotation;

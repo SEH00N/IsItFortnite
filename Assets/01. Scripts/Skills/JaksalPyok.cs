@@ -9,11 +9,13 @@ public class JaksalPyok : SkillBase
     [SerializeField] List<Transform> firePoses;
     [SerializeField] int count = 5;
     [SerializeField] float fireDelay = 0.5f;
+    private CamControl cc = null;
     private PlayerControl pc = null;
 
     private void Start()
     {
         pc = GetComponentInParent<PlayerControl>();
+        cc = GameObject.Find("CM vcam1").GetComponent<CamControl>();
     }
 
     public void PyokPyok()
@@ -30,6 +32,7 @@ public class JaksalPyok : SkillBase
         int c = 0;
         for(int i = 0; i < count; i ++)
         {
+            cc.Shake(8, 0.1f);
             PoolManager.Instance.Dequeue(FireAudio);
             PoolableMono cb = PoolManager.Instance.Dequeue(pc.bulletList[pc.bulletIndex]) as PoolableMono;
             cb.transform.position = firePoses[c].position;

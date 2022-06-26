@@ -16,8 +16,9 @@ public class GGPBullet1 : Bullet
         {
             IDamageable id = other.gameObject.GetComponent<IDamageable>();
             PlayerDamaged pd = other.gameObject.GetComponent<PlayerDamaged>();
+            if(pd.stateEnum.state.HasFlag(State.Damaged)) return;
             float knockBackPwr = pd.knockBackPwr;
-            pd.knockBackPwr = knockBackPwr * 10;
+            pd.knockBackPwr = knockBackPwr * 5;
 
             //pd.isSlow = true;
             
@@ -26,8 +27,8 @@ public class GGPBullet1 : Bullet
                     TimeController.Instance.ModifyTimeScale(0.1f, 0.1f, () => {
                         TimeController.Instance.ModifyTimeScale(1f, 0.05f);
                     });
+                    pd.knockBackPwr = knockBackPwr;
                 });
-            other.gameObject.GetComponent<PlayerDamaged>().knockBackPwr = knockBackPwr;
             PoolManager.Instance.Enqueue(this);
         }
     }

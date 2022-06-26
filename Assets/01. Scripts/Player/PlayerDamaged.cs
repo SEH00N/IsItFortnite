@@ -82,10 +82,10 @@ public class PlayerDamaged : Character, IDamageable
         //enum(State) 업데이트
         stateEnum.state |= State.Damaged;
 
+        StartCoroutine(KnockBack());
+        StartCoroutine(Twinkle());
         freeze?.Invoke();
 
-        StartCoroutine(Twinkle());
-        StartCoroutine(KnockBack());
 
         currentHP -= dmg;
         Mathf.Min(currentHP, 0);

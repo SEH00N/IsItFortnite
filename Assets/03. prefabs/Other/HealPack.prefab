@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d198bbbc282d36547b55e5a018415481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioPrefab: {fileID: 2177226725544355665, guid: 9aca1bb8fa4801b4696c526a90e52a6c, type: 3}
   healAmount: 10
 --- !u!61 &7742453096223378895
 BoxCollider2D:

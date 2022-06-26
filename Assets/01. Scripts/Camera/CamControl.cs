@@ -9,14 +9,40 @@ public class CamControl : MonoBehaviour
     [SerializeField] GameObject pausePanel;
     [SerializeField] float noramlSize = 10f;
     private bool zoomed = false;
+    private CinemachineBasicMultiChannelPerlin perlin = null;
+
+    private void Awake()
+    {
+        perlin = vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+    }
 
     private void Start()
     {
         StartCoroutine(ChangeCam());
-
+        perlin.m_AmplitudeGain = 0f;
         //orthographic 사이즈 초기화
         vCam.m_Lens.OrthographicSize = noramlSize;
         vCam.m_Follow = GameManager.Instance.player.transform;
+    }
+
+    public void Shake(float val, float endtime)
+    {
+        StopAllCoroutines();
+        StartCoroutine(CamShake(val, endtime));
+    }
+
+    private IEnumerator CamShake(float val, float endtime)
+    {
+        perlin.m_AmplitudeGain = val;
+
+        float currentTime = 0f;
+        while(currentTime < endtime)
+        {
+            yield return null;
+            perlin.m_AmplitudeGain = Mathf.Lerp(val, 0, currentTime / endtime);
+            currentTime += Time.deltaTime;
+        }
+        perlin.m_AmplitudeGain = 0f;
     }
 
     public void SetFollow(Transform trm)

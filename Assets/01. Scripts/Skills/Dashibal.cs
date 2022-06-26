@@ -27,6 +27,7 @@ public class Dashibal : SkillBase
 
     private IEnumerator ShibalDash()
     {
+        coolDown = 0;
         Vector3 p = pc.transform.position;
         cc.vCam.transform.position = new Vector3(p.x, p.y, -10);
         pc.stateEnum.state |= State.Ulti;
@@ -37,6 +38,7 @@ public class Dashibal : SkillBase
         ua.EndAni();
         panel.SetActive(true);
         ua.isFinish = false;
+        cc.Shake(10, 1000);
         Collider2D[] arr = Physics2D.OverlapBoxAll(dashRange.bounds.center, dashRange.bounds.size, 0, enemyLayer);
         playerCol.isTrigger = true;
 
@@ -55,12 +57,11 @@ public class Dashibal : SkillBase
         }
         
         GameManager.Instance.player.transform.position = Camera.main.transform.position;
-        
+        cc.Shake(10, 0);
         yield return new WaitForSeconds(delay * 5);
         pc.stateEnum.state &= ~State.Ulti;
         pc.rb2d.velocity = Vector2.zero;
         playerCol.isTrigger = false;
-        coolDown = 0;
         panel.SetActive(false);
 
         cc.SetFollow(GameManager.Instance.player.transform);

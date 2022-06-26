@@ -3,9 +3,16 @@ using System.Collections;
 using UnityEngine;
 
 public class Boomer : Enemy, IDamageable
-{
+{   
     [SerializeField] GameObject bombCollider;
     [SerializeField] float bombDelay = 1f;
+    private CamControl cc = null;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        cc = GameObject.Find("CM vcam1").GetComponent<CamControl>();
+    }
 
     public void OnDamage(float dmg, Action freeze = null)
     {
@@ -63,6 +70,7 @@ public class Boomer : Enemy, IDamageable
         lightObj.SetActive(true);
 
         bombCollider.SetActive(true);
+        cc.Shake(20, 0.6f);
         yield return new WaitForSeconds(bombDelay / 3);
         bombCollider.SetActive(false);
 
@@ -82,7 +90,7 @@ public class Boomer : Enemy, IDamageable
     private void Movement()
     {
         //State가 Damaged면 return
-        if (stateEnum.state.HasFlag(State.Damaged)) return;
+        if (stateEnum.state.HasFlag(State.Damaged) || stateEnum.state.HasFlag(State.Stop)) return;
 
         //enum(State) 업데이트
         stateEnum.state |= State.Move;

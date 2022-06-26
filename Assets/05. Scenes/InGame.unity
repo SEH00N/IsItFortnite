@@ -337,7 +337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f72e8a44fb6a14ba5215432ece9bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: {fileID: 1433401756161832460, guid: 8ed6a6f23699ed04896ea1c672698431, type: 3}
+  itemTest: {fileID: 8772525204501596283, guid: 55491f257a9999944afe594e6ce90e4c, type: 3}
+  test: {fileID: 6005692768191415985, guid: f353f156433f22849945333a7ac138d0, type: 3}
   phase1:
   - {fileID: 6005692768191415985, guid: f353f156433f22849945333a7ac138d0, type: 3}
   - {fileID: 1433401756161832460, guid: 8ed6a6f23699ed04896ea1c672698431, type: 3}
@@ -388,6 +389,7 @@ GameObject:
   - component: {fileID: 86285212}
   - component: {fileID: 86285215}
   - component: {fileID: 86285213}
+  - component: {fileID: 86285214}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -452,6 +454,23 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
+--- !u!114 &86285214
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86285211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 15.18
+  mNoiseOffsets: {x: -241.50339, y: 351.13547, z: 67.75247}
 --- !u!114 &86285215
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -536,8 +555,13 @@ MonoBehaviour:
   - {fileID: 8730861315387101728, guid: 33cb62ce6342b9041a59475abaa0d064, type: 3}
   - {fileID: 8730861315387101728, guid: a201c8136241c414fbae846b6537cbe2, type: 3}
   - {fileID: 8730861315387101728, guid: 58fd24e09bb05724eb51cfa230cf7f6d, type: 3}
+  - {fileID: 5669919076644502731, guid: 8f6a86afc16383547a309552434538a5, type: 3}
   - {fileID: 3841609058025527887, guid: cdfc5dbd7a087864c96fbf288121b37c, type: 3}
   - {fileID: 7067205005918058113, guid: 2a9b12404d1c8ff478113d3b78343f42, type: 3}
+  - {fileID: 8515000397958134551, guid: 8685c496b8b0ed64591b74fb8a4f01f3, type: 3}
+  - {fileID: 3182070498280507081, guid: f5492bd2846f87a46a937bfc7580f13b, type: 3}
+  - {fileID: 2177226725544355665, guid: 9aca1bb8fa4801b4696c526a90e52a6c, type: 3}
+  - {fileID: 6275574498390734917, guid: 7527383202b434d46aa2267019b67c7a, type: 3}
   scoreTxt: {fileID: 1711463217}
   pooler: {fileID: 1204920711}
   minPos: {fileID: 2139537437}
@@ -3897,6 +3921,7 @@ MonoBehaviour:
   - {fileID: 8730861315387101728, guid: 33cb62ce6342b9041a59475abaa0d064, type: 3}
   - {fileID: 8730861315387101728, guid: a201c8136241c414fbae846b6537cbe2, type: 3}
   - {fileID: 8730861315387101728, guid: 58fd24e09bb05724eb51cfa230cf7f6d, type: 3}
+  - {fileID: 5669919076644502731, guid: 8f6a86afc16383547a309552434538a5, type: 3}
   fireAudio: {fileID: 3841609058025527887, guid: cdfc5dbd7a087864c96fbf288121b37c, type: 3}
   firePos:
   - {fileID: 1847928483}

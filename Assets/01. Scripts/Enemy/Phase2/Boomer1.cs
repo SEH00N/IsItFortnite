@@ -84,7 +84,7 @@ public class Boomer1 : Enemy, IDamageable
     private void Movement()
     {
         //State가 Damaged면 return
-        if (stateEnum.state.HasFlag(State.Damaged)) return;
+        if (stateEnum.state.HasFlag(State.Damaged) || stateEnum.state.HasFlag(State.Stop)) return;
 
         //enum(State) 업데이트
         stateEnum.state |= State.Move;

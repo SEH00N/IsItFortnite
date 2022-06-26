@@ -11,6 +11,11 @@ public class Bullet : PoolableMono
 
     public override void Reset()
     {
+        
+    }
+
+    private void OnDisable()
+    {
         currentTime = 0;
     }
 

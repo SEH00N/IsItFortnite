@@ -31,12 +31,13 @@ public class Striker : Enemy, IDamageable
     protected override void Update()
     {
         if(stateEnum.state.HasFlag(State.Damaged)) return;
-
         
         base.Update();
         stateEnum.state |= State.Move;
         Vector2 dir = (player.position - transform.position).normalized;
         rb2d.velocity = dir * speed;
+        if(stateEnum.state.HasFlag(State.Stop))
+            rb2d.velocity = Vector2.zero;
     }
 
     private void OnCollisionEnter2D(Collision2D other)

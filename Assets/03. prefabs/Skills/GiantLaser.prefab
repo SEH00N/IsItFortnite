@@ -71,8 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: -137945549
   m_SortingLayer: -1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d4609d94bf59aca4fa1dd835fdaffbb2, type: 3}
-  m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 36183952e6b28414eb576e5e45bad953, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -182,7 +182,7 @@ Transform:
   m_GameObject: {fileID: 8730861315387101729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 6963138477881627178}
   m_Father: {fileID: 0}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagName:
   - Enemy
-  speed: 30
+  speed: 40
   damage: 15
   lifeTime: 10
 --- !u!61 &3527776750942691674
@@ -218,7 +218,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.026123434, y: 0.037793636}
+  m_Offset: {x: 0.12691933, y: 0.08474922}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -229,5 +229,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.74932194, y: 1.5311868}
+  m_Size: {x: 1.2733659, y: 7.325588}
   m_EdgeRadius: 0

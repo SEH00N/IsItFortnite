@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cdbf5a9c2b5fd46a316e04470fb6f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioPrefab: {fileID: 2177226725544355665, guid: 9aca1bb8fa4801b4696c526a90e52a6c, type: 3}
+  sprite: {fileID: 21300000, guid: 799e8ab28b1a3a14b9e4ddaaaf48e917, type: 3}
 --- !u!61 &5735043873302815436
 BoxCollider2D:
   m_ObjectHideFlags: 0

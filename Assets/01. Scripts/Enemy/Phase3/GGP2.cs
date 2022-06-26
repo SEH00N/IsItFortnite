@@ -49,7 +49,7 @@ public class GGP2 : Enemy, IDamageable
             {
                 //enum(State) 업데이트
                 stateEnum.state |= State.Fire;
-
+                PoolManager.Instance.Dequeue(fireAudio);
                 GGPBullet1 temp = PoolManager.Instance.Dequeue(bullet) as GGPBullet1;
                 temp.transform.position = lookAt.position;
                 temp.transform.rotation = transform.rotation;

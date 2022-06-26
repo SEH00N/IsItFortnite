@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public static EnemySpawner Instance = null;
-
+    [SerializeField] PoolableMono itemTest;
     [SerializeField] PoolableMono test;
     [SerializeField] List<PoolableMono> phase1;
     [SerializeField] List<PoolableMono> phase2;
@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        //StartCoroutine(PhaseUpdate());
+        StartCoroutine(PhaseUpdate());
     }
 
     private void TestSpawn(PoolableMono test)
@@ -48,8 +48,13 @@ public class EnemySpawner : MonoBehaviour
         if (spawnDelay >= limitSpawnDealay)
             spawnDelay -= (GameManager.Instance.currentTime / (balancing * balancing * balancing));
 
-        if (Input.GetKeyDown(KeyCode.C))
-            TestSpawn(test);
+        // if (Input.GetKeyDown(KeyCode.C))
+        //     TestSpawn(test);
+        // if (Input.GetKeyDown(KeyCode.D))
+        // {
+        //     PoolableMono a = PoolManager.Instance.Dequeue(itemTest);
+        //     a.transform.position = GameManager.Instance.player.transform.position;
+        // }
     }
 
     private IEnumerator PhaseUpdate()
