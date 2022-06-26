@@ -279,7 +279,7 @@ MonoBehaviour:
     m_Bits: 512
   lookAt: {fileID: 2224690305405053880}
   speed: 4
-  maxHP: 5
+  maxHP: 9
   patrolDelay: 2
   patrolDistance: 2
   knockBackDuration: 0.1

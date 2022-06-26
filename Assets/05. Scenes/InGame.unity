@@ -361,7 +361,7 @@ MonoBehaviour:
   - {fileID: 7254507913799010002, guid: 2a741283852787646be4f1d879f4912a, type: 3}
   - {fileID: -663416917159156237, guid: 3f31e24489a23c3458d0487354805715, type: 3}
   distance: 40
-  spawnDelay: 6
+  spawnDelay: 4
   limitSpawnDealay: 2
   randPos: {x: 0, y: 0, z: 0}
 --- !u!4 &71585890
@@ -1579,12 +1579,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489639656}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 71, y: 40, z: 1}
   m_Children: []
-  m_Father: {fileID: 1849307210}
-  m_RootOrder: 0
+  m_Father: {fileID: 519420032}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &489639658
 BoxCollider2D:
@@ -1727,7 +1727,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.00000059604645, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1923875435}
+  - {fileID: 489639657}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2697,8 +2699,8 @@ MonoBehaviour:
   lookAt: {fileID: 786440551}
   firePos: {fileID: 414945532}
   key: 101
-  coolTime: 10
-  coolDown: 8
+  coolTime: 13
+  coolDown: 11
   fireAudio: {fileID: 3841609058025527887, guid: cdfc5dbd7a087864c96fbf288121b37c, type: 3}
   bullet: {fileID: 3970516567609092438, guid: 358f0d0c16ac08a499e35ba736e83f73, type: 3}
 --- !u!1 &1297515439
@@ -3991,9 +3993,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 489639657}
-  - {fileID: 1923875435}
+  m_Children: []
   m_Father: {fileID: 2081797713}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4118,11 +4118,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923875432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1849307210}
-  m_RootOrder: 1
+  m_Father: {fileID: 519420032}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1923875436
 MonoBehaviour:

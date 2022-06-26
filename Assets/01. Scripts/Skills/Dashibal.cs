@@ -14,7 +14,7 @@ public class Dashibal : SkillBase
 
     private void Awake()
     {
-        ua = GetComponentInChildren<UltiAni>();
+        ua = GameObject.Find("UltiAni").GetComponent<UltiAni>();
         pc = GetComponentInParent<PlayerControl>();
         cc = GameObject.Find("CM vcam1").GetComponent<CamControl>();
     }

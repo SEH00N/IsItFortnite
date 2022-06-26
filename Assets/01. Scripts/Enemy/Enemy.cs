@@ -160,7 +160,7 @@ public class Enemy : PoolableMono
     protected void DropItem(PoolableMono item)
     {
         float randVal = Random.Range(0, 100);
-        if (randVal >= 98)
+        if (randVal >= 99)
         {
             PoolableMono temp = PoolManager.Instance.Dequeue(item);
             temp.transform.position = transform.position;

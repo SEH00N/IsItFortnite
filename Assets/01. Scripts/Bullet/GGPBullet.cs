@@ -25,7 +25,7 @@ public class GGPBullet : Bullet
                         TimeController.Instance.ModifyTimeScale(1f, 0.05f);
                     });
 
-                    pd.knockBackPwr = knockBackPwr;
+                    pd.knockBackPwr = 10;
                 });
             PoolManager.Instance.Enqueue(this);
         }
