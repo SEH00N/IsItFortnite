@@ -18,7 +18,7 @@ public class GGPBullet1 : Bullet
             PlayerDamaged pd = other.gameObject.GetComponent<PlayerDamaged>();
             if(pd.stateEnum.state.HasFlag(State.Damaged)) return;
             float knockBackPwr = pd.knockBackPwr;
-            pd.knockBackPwr = knockBackPwr * 5;
+            pd.knockBackPwr = 50;
 
             //pd.isSlow = true;
             
