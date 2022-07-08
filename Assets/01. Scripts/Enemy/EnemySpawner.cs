@@ -48,13 +48,13 @@ public class EnemySpawner : MonoBehaviour
         if (spawnDelay >= limitSpawnDealay)
             spawnDelay -= (GameManager.Instance.currentTime / (balancing * balancing * balancing));
 
-        // if (Input.GetKeyDown(KeyCode.C))
-        //     TestSpawn(test);
-        // if (Input.GetKeyDown(KeyCode.D))
-        // {
-        //     PoolableMono a = PoolManager.Instance.Dequeue(itemTest);
-        //     a.transform.position = GameManager.Instance.player.transform.position;
-        // }
+        if (Input.GetKeyDown(KeyCode.C))
+            TestSpawn(test);
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            PoolableMono a = PoolManager.Instance.Dequeue(itemTest);
+            a.transform.position = GameManager.Instance.player.transform.position;
+        }
     }
 
     private IEnumerator PhaseUpdate()

@@ -7,8 +7,7 @@ public class SetIntro : MonoBehaviour
 
     private void Awake()
     {
-        //PlayerPrefs.SetInt("IsWatched", 0);
-        //Debug.Log($"{PlayerPrefs.GetInt("IsWatched")}");
+        //PlayerPrefs.DeleteAll();
         isWatched = PlayerPrefs.GetInt("IsWatched", 0);
         if(isWatched == 0)
             rt.localPosition = new Vector3(1920, 0, 0);
